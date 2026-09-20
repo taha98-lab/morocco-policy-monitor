@@ -2,5 +2,7 @@
   "name": "Morocco Policy Monitor",
   "description": "Independent civic information, policy tracking, and public-finance analysis for Morocco by Taha Khobizi.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
