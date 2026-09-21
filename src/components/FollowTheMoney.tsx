@@ -52,11 +52,11 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                 </div>
 
                 <b className="block text-base sm:text-lg text-white font-bold mb-1 leading-snug">
-                  {lang === 'en' ? stage.titleEn.split('·')[1]?.trim() : stage.titleAr.split('·')[1]?.trim()}
+                  {lang !== 'ar' ? stage.titleEn.split('·')[1]?.trim() : stage.titleAr.split('·')[1]?.trim()}
                 </b>
 
                 <span className="block text-xs text-[#9DAAB5] leading-normal">
-                  {lang === 'en' ? stage.questionEn : stage.questionAr}
+                  {lang !== 'ar' ? stage.questionEn : stage.questionAr}
                 </span>
 
                 {/* Subtle bottom accent line when active */}
@@ -74,15 +74,15 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#2E3F4E] mb-6">
             <div>
               <div className="flex items-center gap-2 mb-1 text-xs font-bold text-[#B88932] uppercase">
-                <span>{lang === 'en' ? 'Phase' : 'المرحلة'} 0{activeStageIndex + 1}</span>
+                <span>{lang !== 'ar' ? 'Phase' : 'المرحلة'} 0{activeStageIndex + 1}</span>
                 <span>·</span>
                 <span>{t.money.stages[currentStage.stageId]}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                {lang === 'en' ? currentStage.titleEn : currentStage.titleAr}
+                {lang !== 'ar' ? currentStage.titleEn : currentStage.titleAr}
               </h3>
               <p className="text-xs sm:text-sm text-[#B9C3CB] mt-1">
-                {lang === 'en' ? currentStage.questionEn : currentStage.questionAr}
+                {lang !== 'ar' ? currentStage.questionEn : currentStage.questionAr}
               </p>
             </div>
 
@@ -92,7 +92,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                   {t.money.totalBudget}
                 </span>
                 <span className="text-2xl font-extrabold text-[#B88932] font-mono">
-                  ~{currentStage.totalMmdh} {lang === 'en' ? 'Billion MAD' : 'مليار درهم'}
+                  ~{currentStage.totalMmdh} {lang !== 'ar' ? 'Billion MAD' : 'مليار درهم'}
                 </span>
               </div>
             )}
@@ -107,7 +107,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                   <span className="text-sm font-bold text-white">
-                    {lang === 'en' ? item.nameEn : item.nameAr}
+                    {lang !== 'ar' ? item.nameEn : item.nameAr}
                   </span>
                   <div className="flex items-center gap-3 font-mono text-xs">
                     {item.amountMmdh > 0 && (
@@ -117,7 +117,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                     )}
                     {item.sharePercent > 0 && (
                       <span className="text-[#8C9BA7] bg-[#1E2E3D] px-2 py-0.5 rounded text-[11px]">
-                        {item.sharePercent}% {currentStage.stageId === 'execution' ? (lang === 'en' ? 'disbursed' : 'نسبة الصرف') : t.money.shareOfBudget}
+                        {item.sharePercent}% {currentStage.stageId === 'execution' ? (lang !== 'ar' ? 'disbursed' : 'نسبة الصرف') : t.money.shareOfBudget}
                       </span>
                     )}
                   </div>
@@ -134,7 +134,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                 )}
 
                 <p className="text-xs text-[#B9C3CB] leading-relaxed">
-                  {lang === 'en' ? item.detailEn : item.detailAr}
+                  {lang !== 'ar' ? item.detailEn : item.detailAr}
                 </p>
               </div>
             ))}
@@ -147,7 +147,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               onClick={() => setActiveStageIndex((prev) => Math.max(0, prev - 1))}
               className="px-3 py-1.5 rounded border border-[#2E3F4E] text-[#B9C3CB] hover:text-white hover:bg-[#1E2E3D] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors"
             >
-              ← {lang === 'en' ? 'Previous Stage' : 'المرحلة السابقة'}
+              ← {lang !== 'ar' ? 'Previous Stage' : 'المرحلة السابقة'}
             </button>
 
             <span className="text-[#8C9BA7] font-mono">
@@ -159,7 +159,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               onClick={() => setActiveStageIndex((prev) => Math.min(BUDGET_FLOW.length - 1, prev + 1))}
               className="px-3 py-1.5 rounded bg-[#B88932] text-white hover:bg-[#9B7226] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors font-semibold flex items-center gap-1"
             >
-              <span>{lang === 'en' ? 'Next Stage' : 'المرحلة التالية'}</span>
+              <span>{lang !== 'ar' ? 'Next Stage' : 'المرحلة التالية'}</span>
               <ArrowIcon className="w-3.5 h-3.5" />
             </button>
           </div>
