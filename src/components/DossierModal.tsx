@@ -14,7 +14,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
   const t = TRANSLATIONS[lang];
 
   const handleCopyCitation = () => {
-    const citation = `[Morocco Policy Monitor Dossier ${promise.id}] "${lang === 'en' ? promise.title : promise.titleAr}" - Status: ${lang === 'en' ? promise.statusLabelEn : promise.statusLabelAr}. Source: Déclaration Gouvernementale / Bulletin Officiel (Retrieved 2026).`;
+    const citation = `[Morocco Policy Monitor Dossier ${promise.id}] "${lang !== 'ar' ? promise.title : promise.titleAr}" - Status: ${lang !== 'ar' ? promise.statusLabelEn : promise.statusLabelAr}. Source: Déclaration Gouvernementale / Bulletin Officiel (Retrieved 2026).`;
     navigator.clipboard.writeText(citation);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -34,7 +34,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               {promise.id}
             </span>
             <span className="text-xs font-semibold text-[#62717F] uppercase tracking-wider">
-              {lang === 'en' ? promise.area : promise.areaAr}
+              {lang !== 'ar' ? promise.area : promise.areaAr}
             </span>
           </div>
 
@@ -80,17 +80,17 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               </span>
             </div>
             <h2 className="text-2xl font-extrabold text-[#14202B] leading-tight mb-4">
-              {lang === 'en' ? promise.title : promise.titleAr}
+              {lang !== 'ar' ? promise.title : promise.titleAr}
             </h2>
 
             {/* Status & Confidence badges */}
             <div className="flex flex-wrap items-center gap-3 p-3.5 rounded bg-[#F8F9FA] border border-[#DFE4E8]">
               <div className="text-xs font-bold">
                 <span className="text-[#62717F] block text-[10px] uppercase font-semibold">
-                  {lang === 'en' ? 'Audit Status' : 'حالة التدقيق'}
+                  {lang !== 'ar' ? 'Audit Status' : 'حالة التدقيق'}
                 </span>
                 <span className="text-sm font-extrabold text-[#14202B]">
-                  {lang === 'en' ? promise.statusLabelEn : promise.statusLabelAr}
+                  {lang !== 'ar' ? promise.statusLabelEn : promise.statusLabelAr}
                 </span>
               </div>
               <div className="border-l border-[#DFE4E8] pl-3 text-xs">
@@ -98,7 +98,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                   {t.monitor.confidenceLabel}
                 </span>
                 <span className="font-bold text-[#12365A]">
-                  {lang === 'en' ? promise.confidence : promise.confidenceAr}
+                  {lang !== 'ar' ? promise.confidence : promise.confidenceAr}
                 </span>
               </div>
             </div>
@@ -110,7 +110,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               {t.monitor.targetLabel}:
             </span>
             <p className="text-[#34424D] leading-relaxed">
-              {lang === 'en' ? promise.target : promise.targetAr}
+              {lang !== 'ar' ? promise.target : promise.targetAr}
             </p>
           </div>
 
@@ -121,7 +121,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               <span>{t.dossier.officialText}</span>
             </h4>
             <blockquote className="p-3.5 rounded bg-[#F1F4F7] text-xs sm:text-sm font-serif italic text-[#14202B] leading-relaxed border-l-2 border-[#12365A]">
-              {lang === 'en' ? promise.officialDeclaration : promise.officialDeclarationAr}
+              {lang !== 'ar' ? promise.officialDeclaration : promise.officialDeclarationAr}
             </blockquote>
           </div>
 
@@ -132,7 +132,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               <span>{t.dossier.budgetEarmarked}</span>
             </h4>
             <p className="text-xs sm:text-sm font-mono font-bold text-[#14202B] bg-[#F8F9FA] p-3 rounded border border-[#DFE4E8]">
-              {lang === 'en' ? promise.budgetAllocatedMad : promise.budgetAllocatedMadAr}
+              {lang !== 'ar' ? promise.budgetAllocatedMad : promise.budgetAllocatedMadAr}
             </p>
           </div>
 
@@ -145,7 +145,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                 <span>{t.dossier.outputs}</span>
               </h5>
               <ul className="space-y-2 text-xs text-[#34424D]">
-                {(lang === 'en' ? promise.implementationOutputs : promise.implementationOutputsAr).map((out, i) => (
+                {(lang !== 'ar' ? promise.implementationOutputs : promise.implementationOutputsAr).map((out, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-[#12365A] font-bold">•</span>
                     <span>{out}</span>
@@ -161,7 +161,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                 <span>{t.dossier.outcomes}</span>
               </h5>
               <ul className="space-y-2 text-xs text-[#34424D]">
-                {(lang === 'en' ? promise.citizenOutcomes : promise.citizenOutcomesAr).map((out, i) => (
+                {(lang !== 'ar' ? promise.citizenOutcomes : promise.citizenOutcomesAr).map((out, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-[#B22222] font-bold">•</span>
                     <span>{out}</span>
@@ -178,7 +178,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               <span>{t.dossier.uncertainties}</span>
             </h5>
             <p className="text-xs text-[#4B5864] leading-relaxed">
-              {lang === 'en' ? promise.uncertaintyNotes : promise.uncertaintyNotesAr}
+              {lang !== 'ar' ? promise.uncertaintyNotes : promise.uncertaintyNotesAr}
             </p>
           </div>
 
