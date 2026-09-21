@@ -47,12 +47,12 @@ export const Header: React.FC<HeaderProps> = ({ lang, onChangeLanguage }) => {
           </div>
         </button>
 
-        <nav className="hidden xl:flex items-center gap-5">
+        <nav className="hidden 2xl:flex items-center gap-4 min-w-0">
           {navLinks.map((link) => (
             <button
               key={link.path}
               onClick={() => navigate(link.path)}
-              className="text-xs font-semibold uppercase tracking-wider text-[#34424D] hover:text-[#12365A] transition-colors py-2 border-b-2 border-transparent hover:border-[#12365A] whitespace-nowrap"
+              className="text-[11px] font-semibold uppercase tracking-wide text-[#34424D] hover:text-[#12365A] transition-colors py-2 border-b-2 border-transparent hover:border-[#12365A] whitespace-nowrap"
             >
               {link.label}
             </button>
@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ lang, onChangeLanguage }) => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded border border-[#DFE4E8] text-[#14202B] hover:bg-[#F8F9FA] transition-colors cursor-pointer"
+            className="2xl:hidden p-2 rounded border border-[#DFE4E8] text-[#14202B] hover:bg-[#F8F9FA] transition-colors cursor-pointer"
             aria-label={t.mobileMenuLabel}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -86,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ lang, onChangeLanguage }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-[#DFE4E8] bg-white px-4 py-4 space-y-1 shadow-lg">
+        <div className="2xl:hidden border-t border-[#DFE4E8] bg-white px-4 py-4 space-y-1 shadow-lg">
           {navLinks.map((link) => (
             <button
               key={link.path}
