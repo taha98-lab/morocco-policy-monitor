@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             onClick={scrollToTop}
             className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#12365A] hover:text-[#0B1E33] cursor-pointer"
           >
-            <span>{lang !== 'ar' ? 'Back to top' : 'العودة إلى الأعلى'}</span>
+            <span>{lang === 'fr' ? 'Retour en haut' : lang !== 'ar' ? 'Back to top' : 'العودة إلى الأعلى'}</span>
             <ArrowUp className="w-3 h-3" />
           </button>
         </div>
