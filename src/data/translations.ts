@@ -105,6 +105,16 @@ export const TRANSLATIONS = {
       billionMad: 'Billion MAD (MMDH)',
       shareOfBudget: 'Share of Total',
     },
+    reports: {
+      eyebrow: '06 · RESEARCH & PUBLICATIONS',
+      title: 'Reports',
+      desc: 'A library of reports, research briefs and thematic publications produced by Morocco Policy Monitor. Publications may be available in English, French and Arabic.',
+      author: 'Author',
+      publishedBy: 'Published by',
+      comingSoon: 'Coming soon',
+      editorialNoteLabel: 'Editorial note',
+      editorialNote: 'Reports published here represent the analysis of their author. They do not represent the position of any government, political party or institution.',
+    },
     methodology: {
       eyebrow: '05 · RIGOROUS AUDIT PROTOCOL',
       title: 'Evidence before narrative.',
@@ -249,6 +259,16 @@ export const TRANSLATIONS = {
       totalBudget: 'إجمالي حجم الميزانية العامة للدولة',
       billionMad: 'مليار درهم (MMDH)',
       shareOfBudget: 'النسبة من الإجمالي',
+    },
+    reports: {
+      eyebrow: '06 · البحث والمنشورات',
+      title: 'التقارير',
+      desc: 'مكتبة للتقارير والموجزات البحثية والمنشورات الموضوعاتية التي ينتجها مرصد السياسات العمومية، مع إمكانية إتاحتها بالعربية والفرنسية والإنجليزية.',
+      author: 'المؤلف',
+      publishedBy: 'نشر من طرف',
+      comingSoon: 'قريباً',
+      editorialNoteLabel: 'ملاحظة تحريرية',
+      editorialNote: 'تعبر التقارير المنشورة هنا عن تحليل مؤلفها، ولا تمثل موقف أي حكومة أو حزب سياسي أو مؤسسة.',
     },
     methodology: {
       eyebrow: '05 · بروتوكول البحث والتدقيق',
