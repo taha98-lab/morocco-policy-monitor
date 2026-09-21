@@ -1,6 +1,7 @@
-export type Language = 'en' | 'ar';
+export type Language = 'en' | 'ar' | 'fr';
 
 export type PromiseStatus = 'not-achieved' | 'partial' | 'achieved' | 'review';
+
 export type ConfidenceLevel = 'High' | 'Medium' | 'Low';
 
 export interface EvidenceEntry {
@@ -55,7 +56,7 @@ export interface EconomicIndicator {
   unit: string;
   change: string;
   changeDirection: 'up' | 'down' | 'neutral';
-  isPositive: boolean | null; // null if neutral/context-dependent
+  isPositive: boolean | null;
   sourceInstitution: string;
   sourceInstitutionAr: string;
   definitionEn: string;
