@@ -57,7 +57,7 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
       console.error('AI assistant error:', err);
       // Helpful fallback response grounded in verified data if offline or key pending
       setError(
-        lang === 'en'
+        lang !== 'ar'
           ? 'Notice: AI assistant request could not be completed via server. Please ensure network connectivity or check secret configuration.'
           : 'ملاحظة: تعذر إتمام طلب المساعد الذكي عبر الخادم. يرجى التحقق من الاتصال بالشبكة.'
       );
@@ -163,7 +163,7 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
               <div>
                 <p className="font-semibold">{error}</p>
                 <p className="mt-1 text-[11px] text-rose-700">
-                  {lang === 'en'
+                  {lang !== 'ar'
                     ? 'Tip: You can still explore the official indicators, government audits, and budget flows directly on this platform.'
                     : 'تنبيه: يمكنك مواصلة استكشاف المؤشرات الرسمية وسجلات التدقيق عبر أقسام المنصة.'}
                 </p>
