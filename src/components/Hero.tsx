@@ -42,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
           {/* Call to actions */}
           <div className="flex flex-wrap items-center gap-3.5 mb-14">
             <a
-              href="#monitor"
+              href="/monitor"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded bg-[#12365A] hover:bg-[#0B1E33] text-white text-sm font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer"
             >
               <FileText className="w-4 h-4" />
@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
             </a>
 
             <a
-              href="#assistant"
+              href="/assistant"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded bg-[#F8F9FA] hover:bg-[#EEF1F3] border border-[#DFE4E8] text-[#14202B] text-sm font-semibold transition-all shadow-2xs hover:border-[#B88932] cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-[#B88932]" />
@@ -58,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
             </a>
 
             <a
-              href="#methodology"
+              href="/methodology"
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded text-[#62717F] hover:text-[#12365A] text-sm font-semibold transition-colors cursor-pointer"
             >
               <span>{t.hero.howWeWorkBtn}</span>
