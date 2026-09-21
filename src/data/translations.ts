@@ -566,6 +566,7 @@ const FR = {
     title: 'Rapports',
     desc: 'Les travaux de recherche publiés par Morocco Policy Monitor, avec une distinction claire entre les données, la méthode et l’analyse de leurs auteurs.',
     emptyTitle: 'Premières publications à venir',
+    comingSoon: 'Premières publications à venir',
     emptyDesc: 'Cette bibliothèque accueillera les rapports, notes de recherche, briefs de forum et rapports spéciaux publiés par Morocco Policy Monitor.',
     author: 'Auteur',
     published: 'Publié le',
