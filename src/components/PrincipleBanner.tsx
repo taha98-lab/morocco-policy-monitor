@@ -18,7 +18,7 @@ export const PrincipleBanner: React.FC<PrincipleBannerProps> = ({ lang }) => {
           {t.principle.quote}
         </blockquote>
         <div className="mt-6 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#B88932]">
-          <span>{lang === 'en' ? 'Core Editorial Principle' : 'المبدأ التحريري الأساسي'}</span>
+          <span>{lang !== 'ar' ? 'Core Editorial Principle' : 'المبدأ التحريري الأساسي'}</span>
           <span>·</span>
           <span>Morocco Policy Monitor</span>
         </div>
