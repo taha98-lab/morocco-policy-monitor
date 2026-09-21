@@ -70,19 +70,19 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
           <div className="pt-8 border-t border-[#E8ECEF] grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="flex items-center gap-2 text-xs font-medium text-[#4B5864]">
               <CheckCircle2 className="w-4 h-4 text-[#B88932] shrink-0" />
-              <span>{lang !== 'ar' ? 'Non-Partisan Audit' : 'تدقيق مستقل ومحايد'}</span>
+              <span>{lang === 'fr' ? 'Audit non partisan' : lang !== 'ar' ? 'Non-Partisan Audit' : 'تدقيق مستقل ومحايد'}</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-medium text-[#4B5864]">
               <Database className="w-4 h-4 text-[#B88932] shrink-0" />
-              <span>{lang !== 'ar' ? 'Primary Official Sources' : 'مصادر رسمية أولية'}</span>
+              <span>{lang === 'fr' ? 'Sources officielles primaires' : lang !== 'ar' ? 'Primary Official Sources' : 'مصادر رسمية أولية'}</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-medium text-[#4B5864]">
               <CheckCircle2 className="w-4 h-4 text-[#B88932] shrink-0" />
-              <span>{lang !== 'ar' ? 'Loi de Finances Traced' : 'تتبع ميزانية الدولة'}</span>
+              <span>{lang === 'fr' ? 'Suivi de la Loi de finances' : lang !== 'ar' ? 'Loi de Finances Traced' : 'تتبع ميزانية الدولة'}</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-medium text-[#4B5864]">
               <CheckCircle2 className="w-4 h-4 text-[#B88932] shrink-0" />
-              <span>{lang !== 'ar' ? 'Open Corrections Policy' : 'سياسة تصحيح مفتوحة'}</span>
+              <span>{lang === 'fr' ? 'Politique de correction ouverte' : lang !== 'ar' ? 'Open Corrections Policy' : 'سياسة تصحيح مفتوحة'}</span>
             </div>
           </div>
         </div>
