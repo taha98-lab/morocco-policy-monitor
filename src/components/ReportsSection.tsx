@@ -10,7 +10,7 @@ interface ReportsSectionProps {
 export const ReportsSection: React.FC<ReportsSectionProps> = ({ lang }) => {
   const t = TRANSLATIONS[lang].reports;
   const labels = lang === 'fr'
-    ? ['Forum Briefs', 'Rapports de politique publique', 'Notes de recherche', 'Rapports spéciaux']
+    ? ['Briefs de forum', 'Rapports de politique publique', 'Notes de recherche', 'Rapports spéciaux']
     : lang === 'ar'
       ? ['موجزات المنتديات', 'تقارير السياسات العمومية', 'موجزات بحثية', 'تقارير خاصة']
       : ['Forum Briefs', 'Policy Reports', 'Research Briefs', 'Special Reports'];
