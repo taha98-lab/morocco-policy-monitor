@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+const GEMINI_MODEL = "gemini-2.5-flash";
 
 export const config = {
   runtime: "nodejs",
@@ -20,11 +20,9 @@ export default async function handler(req: any, res: any) {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return res.status(500).json({
-        error: "The Civic AI service is not configured on the server.",
+        error: "GEMINI_API_KEY is not configured for this Vercel deployment. Add it under Project Settings → Environment Variables for Production, then redeploy.",
       });
     }
-
-    const ai = new GoogleGenAI({ apiKey });
 
     const requestedLanguage =
       language === "ar"
@@ -38,32 +36,59 @@ export default async function handler(req: any, res: any) {
 Core mandate:
 - Provide objective, evidence-based civic and public-policy explanations about Morocco.
 - Never take political sides, endorse parties or candidates, or tell citizens what to think.
-- Distinguish clearly between government promises, legislation, implementation, outputs, citizen outcomes, and impacts.
-- Prefer official Moroccan sources and institutional mechanisms such as HCP, Bank Al-Maghrib, Ministry of Economy and Finance, Cour des Comptes, Bulletin Officiel, and the Constitution.
-- When figures or claims may have changed, state the relevant date and note methodological limitations rather than presenting uncertain information as current fact.
-- Distinguish documented facts from interpretation and clearly attribute contested claims.
+- Distinguish government promises, legislation, implementation, outputs, citizen outcomes, and impacts.
+- Prefer official Moroccan sources such as HCP, Bank Al-Maghrib, Ministry of Economy and Finance, Cour des Comptes, Bulletin Officiel, and the Constitution.
+- When figures may have changed, state the relevant date and methodological limitations.
+- Distinguish documented facts from interpretation and attribute contested claims.
 - Answer in ${requestedLanguage}.
-- Structure the answer with concise headings or bullet points when useful.
-- If the available information is insufficient, say so explicitly rather than inventing evidence.`;
+- If evidence is insufficient, say so explicitly rather than inventing evidence.`;
 
     const prompt = `Topic context: ${contextTopic || "General Moroccan Public Policy & Civic Governance"}
 
 User question:
 ${question}
 
-Provide a neutral, useful civic explanation. Where relevant, identify the institutional mechanism, the evidence needed to verify a claim, and important limitations.`;
+Provide a neutral, useful civic explanation. Where relevant, identify the institutional mechanism, evidence needed to verify a claim, and important limitations.`;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-      config: {
-        systemInstruction,
-        temperature: 0.3,
-      },
-    });
+    const geminiResponse = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemInstruction }] },
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.3 },
+        }),
+      }
+    );
+
+    const payload = await geminiResponse.json();
+
+    if (!geminiResponse.ok) {
+      const providerMessage =
+        payload?.error?.message || `Gemini returned HTTP ${geminiResponse.status}.`;
+      console.error("Gemini API error:", payload);
+      return res.status(502).json({
+        error: `AI provider error: ${providerMessage}`,
+      });
+    }
+
+    const answer =
+      payload?.candidates?.[0]?.content?.parts
+        ?.map((part: any) => part?.text || "")
+        .join("")
+        .trim() || "";
+
+    if (!answer) {
+      return res.status(502).json({
+        error: "The AI provider returned an empty response.",
+      });
+    }
 
     return res.status(200).json({
-      answer: response.text || "No response was generated.",
+      answer,
+      model: GEMINI_MODEL,
       timestamp: new Date().toISOString(),
     });
   } catch (error: any) {
