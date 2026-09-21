@@ -56,10 +56,13 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
     } catch (err: any) {
       console.error('AI assistant error:', err);
       // Helpful fallback response grounded in verified data if offline or key pending
+      const message = err instanceof Error ? err.message : 'Unknown server error.';
       setError(
-        lang !== 'ar'
-          ? 'Notice: AI assistant request could not be completed via server. Please ensure network connectivity or check secret configuration.'
-          : 'ملاحظة: تعذر إتمام طلب المساعد الذكي عبر الخادم. يرجى التحقق من الاتصال بالشبكة.'
+        lang === 'fr'
+          ? `Le service IA n’a pas pu répondre. Détail : ${message}`
+          : lang === 'ar'
+            ? `تعذر على المساعد الذكي الرد. التفاصيل: ${message}`
+            : `The AI service could not respond. Detail: ${message}`
       );
     } finally {
       setLoading(false);
