@@ -46,15 +46,15 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({ lang }) 
                 </div>
 
                 <h3 className="text-base sm:text-lg font-bold text-[#14202B] mb-2 leading-snug">
-                  {lang === 'en' ? step.titleEn : step.titleAr}
+                  {lang !== 'ar' ? step.titleEn : step.titleAr}
                 </h3>
 
                 <p className="text-xs sm:text-sm font-serif italic text-[#12365A] mb-3 font-medium">
-                  {lang === 'en' ? step.questionEn : step.questionAr}
+                  {lang !== 'ar' ? step.questionEn : step.questionAr}
                 </p>
 
                 <p className="text-xs text-[#62717F] leading-relaxed mb-4">
-                  {lang === 'en' ? step.descriptionEn : step.descriptionAr}
+                  {lang !== 'ar' ? step.descriptionEn : step.descriptionAr}
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({ lang }) 
 
                 {isExpanded && (
                   <div className="mt-3 p-3 rounded-sm bg-[#F8F9FA] border border-[#DFE4E8] text-xs space-y-2 animate-in fade-in">
-                    {(lang === 'en' ? step.auditStandardEn : step.auditStandardAr).map((std, i) => (
+                    {(lang !== 'ar' ? step.auditStandardEn : step.auditStandardAr).map((std, i) => (
                       <div key={i} className="flex items-start gap-2 text-[#34424D]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#B88932] shrink-0 mt-0.5" />
                         <span>{std}</span>
