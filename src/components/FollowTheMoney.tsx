@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Language, BudgetFlowStage } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { BUDGET_FLOW } from '../data/civicData';
+import { FRENCH_BUDGET } from '../data/frenchCivicData';
 import { Landmark, ArrowRight, ArrowLeft, PieChart, CheckCircle, TrendingDown, DollarSign } from 'lucide-react';
 
 interface FollowTheMoneyProps {
@@ -52,11 +53,11 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                 </div>
 
                 <b className="block text-base sm:text-lg text-white font-bold mb-1 leading-snug">
-                  {lang !== 'ar' ? stage.titleEn.split('·')[1]?.trim() : stage.titleAr.split('·')[1]?.trim()}
+                  {lang === 'fr' ? FRENCH_BUDGET[stage.stageId]?.title.split('·')[1]?.trim() : lang === 'ar' ? stage.titleAr.split('·')[1]?.trim() : stage.titleEn.split('·')[1]?.trim()}
                 </b>
 
                 <span className="block text-xs text-[#9DAAB5] leading-normal">
-                  {lang !== 'ar' ? stage.questionEn : stage.questionAr}
+                  {lang === 'fr' ? FRENCH_BUDGET[stage.stageId]?.question : lang === 'ar' ? stage.questionAr : stage.questionEn}
                 </span>
 
                 {/* Subtle bottom accent line when active */}
@@ -74,15 +75,15 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#2E3F4E] mb-6">
             <div>
               <div className="flex items-center gap-2 mb-1 text-xs font-bold text-[#B88932] uppercase">
-                <span>{lang !== 'ar' ? 'Phase' : 'المرحلة'} 0{activeStageIndex + 1}</span>
+                <span>{lang === 'fr' ? 'Phase' : lang !== 'ar' ? 'Phase' : 'المرحلة'} 0{activeStageIndex + 1}</span>
                 <span>·</span>
                 <span>{t.money.stages[currentStage.stageId]}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white">
-                {lang !== 'ar' ? currentStage.titleEn : currentStage.titleAr}
+                {lang === 'fr' ? FRENCH_BUDGET[currentStage.stageId]?.title : lang === 'ar' ? currentStage.titleAr : currentStage.titleEn}
               </h3>
               <p className="text-xs sm:text-sm text-[#B9C3CB] mt-1">
-                {lang !== 'ar' ? currentStage.questionEn : currentStage.questionAr}
+                {lang === 'fr' ? FRENCH_BUDGET[currentStage.stageId]?.question : lang === 'ar' ? currentStage.questionAr : currentStage.questionEn}
               </p>
             </div>
 
@@ -92,7 +93,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                   {t.money.totalBudget}
                 </span>
                 <span className="text-2xl font-extrabold text-[#B88932] font-mono">
-                  ~{currentStage.totalMmdh} {lang !== 'ar' ? 'Billion MAD' : 'مليار درهم'}
+                  ~{currentStage.totalMmdh} {lang === 'fr' ? 'milliards MAD' : lang !== 'ar' ? 'Billion MAD' : 'مليار درهم'}
                 </span>
               </div>
             )}
@@ -107,7 +108,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                   <span className="text-sm font-bold text-white">
-                    {lang !== 'ar' ? item.nameEn : item.nameAr}
+                    {lang === 'ar' ? item.nameAr : item.nameEn}
                   </span>
                   <div className="flex items-center gap-3 font-mono text-xs">
                     {item.amountMmdh > 0 && (
@@ -134,7 +135,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                 )}
 
                 <p className="text-xs text-[#B9C3CB] leading-relaxed">
-                  {lang !== 'ar' ? item.detailEn : item.detailAr}
+                  {lang === 'ar' ? item.detailAr : item.detailEn}
                 </p>
               </div>
             ))}
@@ -147,7 +148,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               onClick={() => setActiveStageIndex((prev) => Math.max(0, prev - 1))}
               className="px-3 py-1.5 rounded border border-[#2E3F4E] text-[#B9C3CB] hover:text-white hover:bg-[#1E2E3D] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors"
             >
-              ← {lang !== 'ar' ? 'Previous Stage' : 'المرحلة السابقة'}
+              ← {lang === 'fr' ? 'Étape précédente' : lang !== 'ar' ? 'Previous Stage' : 'المرحلة السابقة'}
             </button>
 
             <span className="text-[#8C9BA7] font-mono">
@@ -159,7 +160,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               onClick={() => setActiveStageIndex((prev) => Math.min(BUDGET_FLOW.length - 1, prev + 1))}
               className="px-3 py-1.5 rounded bg-[#B88932] text-white hover:bg-[#9B7226] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-colors font-semibold flex items-center gap-1"
             >
-              <span>{lang !== 'ar' ? 'Next Stage' : 'المرحلة التالية'}</span>
+              <span>{lang === 'fr' ? 'Étape suivante' : lang !== 'ar' ? 'Next Stage' : 'المرحلة التالية'}</span>
               <ArrowIcon className="w-3.5 h-3.5" />
             </button>
           </div>
