@@ -135,7 +135,7 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
               {loading ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin" />
-                  <span>{lang !== 'ar' ? 'Analyzing…' : 'جارٍ التحليل…'}</span>
+                  <span>{lang === 'fr' ? 'Analyse en cours…' : lang !== 'ar' ? 'Analyzing…' : 'جارٍ التحليل…'}</span>
                 </>
               ) : (
                 <>
@@ -178,7 +178,7 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
                 <div className="flex items-center gap-2">
                   <Bot className="w-4 h-4 text-[#12365A]" />
                   <span className="text-xs font-bold text-[#14202B] uppercase">
-                    {lang !== 'ar' ? 'Evidence-Based Analysis' : 'تحليل مستند للأدلة'}
+                    {lang === 'fr' ? 'Analyse fondée sur les preuves' : lang !== 'ar' ? 'Evidence-Based Analysis' : 'تحليل مستند للأدلة'}
                   </span>
                 </div>
                 <button
@@ -186,7 +186,7 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
                   className="flex items-center gap-1 text-xs text-[#62717F] hover:text-[#14202B] cursor-pointer"
                 >
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>{copied ? (lang !== 'ar' ? 'Copied' : 'تم النسخ') : (lang !== 'ar' ? 'Copy' : 'نسخ')}</span>
+                  <span>{copied ? (lang === 'fr' ? 'Copié' : lang !== 'ar' ? 'Copied' : 'تم النسخ') : (lang === 'fr' ? 'Copier' : lang !== 'ar' ? 'Copy' : 'نسخ')}</span>
                 </button>
               </div>
 
