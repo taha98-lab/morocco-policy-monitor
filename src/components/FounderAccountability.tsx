@@ -43,7 +43,7 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
             <div className="flex items-center gap-2 mb-2">
               <MessageSquare className="w-4 h-4 text-[#B88932]" />
               <span className="text-xs font-bold text-[#14202B] uppercase tracking-wider">
-                {lang !== 'ar' ? 'Open Corrections & Civic Review' : 'المراجعة المدنية والتصحيح المفتوح'}
+                {lang === 'fr' ? 'Corrections ouvertes et revue civique' : lang !== 'ar' ? 'Open Corrections & Civic Review' : 'المراجعة المدنية والتصحيح المفتوح'}
               </span>
             </div>
             <p className="text-xs text-[#62717F] mb-3 leading-relaxed">
@@ -53,7 +53,7 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
             {feedbackSent ? (
               <div className="p-3 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 font-medium">
                 <Check className="w-4 h-4 text-emerald-600" />
-                <span>{lang !== 'ar' ? 'Thank you! Your citation note has been logged for editorial review.' : 'شكراً لك! تم تسجيل ملاحظتك لفحصها من قبل الفريق التحريري.'}</span>
+                <span>{lang === 'fr' ? 'Merci ! Votre référence a été enregistrée pour examen éditorial.' : lang !== 'ar' ? 'Thank you! Your citation note has been logged for editorial review.' : 'شكراً لك! تم تسجيل ملاحظتك لفحصها من قبل الفريق التحريري.'}</span>
               </div>
             ) : (
               <form onSubmit={handleCorrectionSubmit} className="flex gap-2">
@@ -61,7 +61,7 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
                   type="text"
                   value={correctionNote}
                   onChange={(e) => setCorrectionNote(e.target.value)}
-                  placeholder={lang !== 'ar' ? 'Reference official decree, law number, or HCP survey…' : 'اذكر رقم القانون أو المرسوم أو إحصائية المندوبية…'}
+                  placeholder={lang === 'fr' ? 'Indiquez le décret, le numéro de loi ou l’enquête du HCP…' : lang !== 'ar' ? 'Reference official decree, law number, or HCP survey…' : 'اذكر رقم القانون أو المرسوم أو إحصائية المندوبية…'}
                   className="flex-1 px-3 py-2 rounded-sm border border-[#DFE4E8] text-xs bg-[#F8F9FA] focus:bg-white focus:outline-hidden focus:border-[#12365A]"
                 />
                 <button
@@ -70,7 +70,7 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
                   className="px-4 py-2 rounded-sm bg-[#12365A] hover:bg-[#0B1E33] disabled:opacity-40 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Send className="w-3 h-3" />
-                  <span>{lang !== 'ar' ? 'Submit' : 'إرسال'}</span>
+                  <span>{lang === 'fr' ? 'Envoyer' : lang !== 'ar' ? 'Submit' : 'إرسال'}</span>
                 </button>
               </form>
             )}
@@ -100,7 +100,7 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
 
             <div className="mt-6 pt-4 border-t border-[#EEF1F4] flex items-center gap-2 text-xs font-medium text-[#4B5864]">
               <UserCheck className="w-4 h-4 text-emerald-600" />
-              <span>{lang !== 'ar' ? 'Editorial Transparency & Verified Data' : 'شفافية تحريرية وتوثيق رسمي مستقل'}</span>
+              <span>{lang === 'fr' ? 'Transparence éditoriale et données vérifiées' : lang !== 'ar' ? 'Editorial Transparency & Verified Data' : 'شفافية تحريرية وتوثيق رسمي مستقل'}</span>
             </div>
           </div>
         </div>
