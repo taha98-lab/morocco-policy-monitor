@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Language, MethodologyStep } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { METHODOLOGY_STEPS } from '../data/civicData';
+import { FRENCH_METHODOLOGY } from '../data/frenchCivicData';
 import { CheckCircle2, ChevronDown, ChevronUp, ShieldCheck } from 'lucide-react';
 
 interface MethodologySectionProps {
@@ -46,15 +47,15 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({ lang }) 
                 </div>
 
                 <h3 className="text-base sm:text-lg font-bold text-[#14202B] mb-2 leading-snug">
-                  {lang !== 'ar' ? step.titleEn : step.titleAr}
+                  {lang === 'fr' ? FRENCH_METHODOLOGY[step.stepNumber]?.title : lang === 'ar' ? step.titleAr : step.titleEn}
                 </h3>
 
                 <p className="text-xs sm:text-sm font-serif italic text-[#12365A] mb-3 font-medium">
-                  {lang !== 'ar' ? step.questionEn : step.questionAr}
+                  {lang === 'fr' ? FRENCH_METHODOLOGY[step.stepNumber]?.question : lang === 'ar' ? step.questionAr : step.questionEn}
                 </p>
 
                 <p className="text-xs text-[#62717F] leading-relaxed mb-4">
-                  {lang !== 'ar' ? step.descriptionEn : step.descriptionAr}
+                  {lang === 'fr' ? FRENCH_METHODOLOGY[step.stepNumber]?.description : lang === 'ar' ? step.descriptionAr : step.descriptionEn}
                 </p>
               </div>
 
@@ -70,7 +71,7 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({ lang }) 
 
                 {isExpanded && (
                   <div className="mt-3 p-3 rounded-sm bg-[#F8F9FA] border border-[#DFE4E8] text-xs space-y-2 animate-in fade-in">
-                    {(lang !== 'ar' ? step.auditStandardEn : step.auditStandardAr).map((std, i) => (
+                    {(lang === 'fr' ? FRENCH_METHODOLOGY[step.stepNumber]?.standards : lang === 'ar' ? step.auditStandardAr : step.auditStandardEn).map((std, i) => (
                       <div key={i} className="flex items-start gap-2 text-[#34424D]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#B88932] shrink-0 mt-0.5" />
                         <span>{std}</span>
