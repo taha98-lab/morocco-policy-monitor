@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Language, PromiseRecord } from '../types';
 import { TRANSLATIONS } from '../data/translations';
 import { PROMISES_DATA } from '../data/civicData';
+import { FRENCH_PROMISES } from '../data/frenchCivicData';
 import { DossierModal } from './DossierModal';
 import { Search, Filter, AlertCircle, FileSearch, ArrowRight, ArrowLeft } from 'lucide-react';
 
@@ -21,7 +22,7 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
   // Extract unique policy areas
   const areas = useMemo(() => {
     const set = new Set<string>();
-    PROMISES_DATA.forEach((p) => set.add(lang !== 'ar' ? p.area : p.areaAr));
+    PROMISES_DATA.forEach((p) => set.add(lang === 'fr' ? FRENCH_PROMISES[p.id]?.area : lang === 'ar' ? p.areaAr : p.area));
     return Array.from(set);
   }, [lang]);
 
@@ -40,7 +41,7 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
         p.area.toLowerCase().includes(q) ||
         p.areaAr.toLowerCase().includes(q);
 
-      const matchArea = !selectedArea || (lang !== 'ar' ? p.area === selectedArea : p.areaAr === selectedArea);
+      const matchArea = !selectedArea || (lang === 'fr' ? FRENCH_PROMISES[p.id]?.area === selectedArea : lang === 'ar' ? p.areaAr === selectedArea : p.area === selectedArea);
       const matchStatus = !selectedStatus || p.status === selectedStatus;
 
       return matchSearch && matchArea && matchStatus;
@@ -113,7 +114,7 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
         {(searchQuery || selectedArea || selectedStatus) && (
           <div className="mt-3 pt-3 border-t border-[#F1F4F7] flex items-center justify-between text-xs text-[#62717F]">
             <span>
-              {lang !== 'ar' ? 'Showing' : 'عرض'} <b>{filteredPromises.length}</b> {lang !== 'ar' ? 'of' : 'من'} {PROMISES_DATA.length} {lang !== 'ar' ? 'commitments' : 'تعهدات'}
+              {lang === 'fr' ? 'Affichage de' : lang !== 'ar' ? 'Showing' : 'عرض'} <b>{filteredPromises.length}</b> {lang === 'fr' ? 'sur' : lang !== 'ar' ? 'of' : 'من'} {PROMISES_DATA.length} {lang === 'fr' ? 'engagements' : lang !== 'ar' ? 'commitments' : 'تعهدات'}
             </span>
             <button
               onClick={() => {
@@ -145,25 +146,25 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
                       {p.id}
                     </span>
                     <span className="text-[#62717F] font-semibold">
-                      {lang !== 'ar' ? p.area : p.areaAr}
+                      {lang === 'fr' ? FRENCH_PROMISES[p.id]?.area : lang === 'ar' ? p.areaAr : p.area}
                     </span>
                   </div>
 
                   {/* Title */}
                   <h3 className="text-base sm:text-lg font-bold text-[#14202B] mb-2 leading-snug">
-                    {lang !== 'ar' ? p.title : p.titleAr}
+                    {lang === 'fr' ? FRENCH_PROMISES[p.id]?.title : lang === 'ar' ? p.titleAr : p.title}
                   </h3>
 
                   {/* Target */}
                   <p className="text-xs text-[#62717F] mb-4 leading-relaxed line-clamp-2">
                     <strong className="text-[#14202B]">{t.monitor.targetLabel}:</strong>{' '}
-                    {lang !== 'ar' ? p.target : p.targetAr}
+                    {lang === 'fr' ? FRENCH_PROMISES[p.id]?.target : lang === 'ar' ? p.targetAr : p.target}
                   </p>
 
                   {/* Status Box */}
                   <div className="p-3 rounded-sm bg-[#F8F9FA] border border-[#E9ECEF] mb-4">
                     <span className="text-xs font-bold text-[#14202B] block mb-1">
-                      {lang !== 'ar' ? p.statusLabelEn : p.statusLabelAr}
+                      {lang === 'fr' ? FRENCH_PROMISES[p.id]?.status : lang === 'ar' ? p.statusLabelAr : p.statusLabelEn}
                     </span>
                     <span className="text-[11px] text-[#62717F] block">
                       {t.monitor.confidenceLabel}: <b>{lang !== 'ar' ? p.confidence : p.confidenceAr}</b>
@@ -173,10 +174,10 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
                   {/* Implementation brief */}
                   <div className="text-xs text-[#62717F] mb-4">
                     <span className="font-semibold text-[#14202B] block mb-1">
-                      {lang !== 'ar' ? 'Budgetary allocation:' : 'الاعتماد المالي:'}
+                      {lang === 'fr' ? 'Allocation budgétaire :' : lang !== 'ar' ? 'Budgetary allocation:' : 'الاعتماد المالي:'}
                     </span>
                     <span className="font-mono text-[11px] text-[#12365A] bg-[#F1F4F7] px-2 py-1 rounded-sm block truncate">
-                      {lang !== 'ar' ? p.budgetAllocatedMad : p.budgetAllocatedMadAr}
+                      {lang === 'fr' ? FRENCH_PROMISES[p.id]?.budget : lang === 'ar' ? p.budgetAllocatedMadAr : p.budgetAllocatedMad}
                     </span>
                   </div>
                 </div>
