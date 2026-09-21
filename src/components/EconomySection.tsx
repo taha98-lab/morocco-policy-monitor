@@ -78,7 +78,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                 {/* Header row */}
                 <div className="flex items-start justify-between gap-2 mb-4">
                   <span className="text-[11px] font-bold text-[#62717F] uppercase tracking-wider bg-[#F1F4F7] px-2 py-0.5 rounded-sm">
-                    {lang === 'en' ? ind.categoryLabelEn : ind.categoryLabelAr}
+                    {lang !== 'ar' ? ind.categoryLabelEn : ind.categoryLabelAr}
                   </span>
                   <button
                     onClick={() => setActiveChartId(ind.id)}
@@ -88,13 +88,13 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                     title="View historical trend chart"
                   >
                     <LineChart className="w-3.5 h-3.5" />
-                    <span>{lang === 'en' ? 'Trend' : 'الرسم'}</span>
+                    <span>{lang !== 'ar' ? 'Trend' : 'الرسم'}</span>
                   </button>
                 </div>
 
                 {/* Name */}
                 <h3 className="text-base font-bold text-[#14202B] mb-2 leading-snug">
-                  {lang === 'en' ? ind.nameEn : ind.nameAr}
+                  {lang !== 'ar' ? ind.nameEn : ind.nameAr}
                 </h3>
 
                 {/* Big Metric Display */}
@@ -131,7 +131,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                   <div className="flex items-center gap-1.5">
                     <Database className="w-3.5 h-3.5 text-[#B88932] shrink-0" />
                     <span className="truncate">
-                      <b>{t.economy.source}:</b> {lang === 'en' ? ind.sourceInstitution : ind.sourceInstitutionAr}
+                      <b>{t.economy.source}:</b> {lang !== 'ar' ? ind.sourceInstitution : ind.sourceInstitutionAr}
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -145,7 +145,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                   onClick={() => setExpandedId(isExpanded ? null : ind.id)}
                   className="mt-4 w-full flex items-center justify-between text-xs font-semibold text-[#12365A] hover:text-[#0B1E33] pt-2 border-t border-[#F1F4F7] cursor-pointer"
                 >
-                  <span>{isExpanded ? (lang === 'en' ? 'Hide methodology' : 'إخفاء المنهجية') : (lang === 'en' ? 'Show methodology & definition' : 'عرض المنهجية والتعريف')}</span>
+                  <span>{isExpanded ? (lang !== 'ar' ? 'Hide methodology' : 'إخفاء المنهجية') : (lang !== 'ar' ? 'Show methodology & definition' : 'عرض المنهجية والتعريف')}</span>
                   {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                 </button>
 
@@ -157,7 +157,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                         {t.economy.definition}:
                       </span>
                       <p className="text-[#62717F] leading-relaxed">
-                        {lang === 'en' ? ind.definitionEn : ind.definitionAr}
+                        {lang !== 'ar' ? ind.definitionEn : ind.definitionAr}
                       </p>
                     </div>
                     <div>
@@ -165,7 +165,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                         {t.economy.methodology}:
                       </span>
                       <p className="text-[#62717F] leading-relaxed">
-                        {lang === 'en' ? ind.methodologyEn : ind.methodologyAr}
+                        {lang !== 'ar' ? ind.methodologyEn : ind.methodologyAr}
                       </p>
                     </div>
                   </div>
@@ -186,14 +186,14 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                 </span>
               </div>
               <h3 className="text-xl font-extrabold text-[#14202B]">
-                {lang === 'en' ? selectedChartIndicator.nameEn : selectedChartIndicator.nameAr}
+                {lang !== 'ar' ? selectedChartIndicator.nameEn : selectedChartIndicator.nameAr}
               </h3>
             </div>
 
             <div className="text-xs text-[#62717F]">
               <span>{t.economy.source}: </span>
               <strong className="text-[#14202B]">
-                {lang === 'en' ? selectedChartIndicator.sourceInstitution : selectedChartIndicator.sourceInstitutionAr}
+                {lang !== 'ar' ? selectedChartIndicator.sourceInstitution : selectedChartIndicator.sourceInstitutionAr}
               </strong>
             </div>
           </div>
@@ -251,7 +251,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
             </div>
 
             <div className="mt-4 flex items-center justify-between text-xs text-[#62717F]">
-              <span>{lang === 'en' ? 'Latest verified benchmark' : 'آخر معطى مؤكد موثق'}</span>
+              <span>{lang !== 'ar' ? 'Latest verified benchmark' : 'آخر معطى مؤكد موثق'}</span>
               <span className="font-medium text-[#14202B]">
                 {selectedChartIndicator.historicalSeries[selectedChartIndicator.historicalSeries.length - 1]?.label || selectedChartIndicator.currentValue}
               </span>
@@ -264,7 +264,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
           <div className="flex items-start gap-3">
             <Info className="w-5 h-5 text-[#B88932] shrink-0 mt-0.5" />
             <p className="text-xs sm:text-sm text-[#34424D] leading-relaxed">
-              <strong>{lang === 'en' ? 'Evidence Protocol Note' : 'ملاحظة بروتوكول الأدلة'}:</strong> {t.economy.dataNote}
+              <strong>{lang !== 'ar' ? 'Evidence Protocol Note' : 'ملاحظة بروتوكول الأدلة'}:</strong> {t.economy.dataNote}
             </p>
           </div>
         </div>
