@@ -118,7 +118,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                     )}
                     {item.sharePercent > 0 && (
                       <span className="text-[#8C9BA7] bg-[#1E2E3D] px-2 py-0.5 rounded text-[11px]">
-                        {item.sharePercent}% {currentStage.stageId === 'execution' ? (lang !== 'ar' ? 'disbursed' : 'نسبة الصرف') : t.money.shareOfBudget}
+                        {item.sharePercent}% {currentStage.stageId === 'execution' ? (lang === 'fr' ? 'décaissé' : lang !== 'ar' ? 'disbursed' : 'نسبة الصرف') : t.money.shareOfBudget}
                       </span>
                     )}
                   </div>
