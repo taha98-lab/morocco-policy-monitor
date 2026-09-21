@@ -167,7 +167,7 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
                       {lang === 'fr' ? FRENCH_PROMISES[p.id]?.status : lang === 'ar' ? p.statusLabelAr : p.statusLabelEn}
                     </span>
                     <span className="text-[11px] text-[#62717F] block">
-                      {t.monitor.confidenceLabel}: <b>{lang !== 'ar' ? p.confidence : p.confidenceAr}</b>
+                      {t.monitor.confidenceLabel}: <b>{lang === 'fr' ? 'Élevé' : lang !== 'ar' ? p.confidence : p.confidenceAr}</b>
                     </span>
                   </div>
 
@@ -216,7 +216,7 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
 
       {/* Strict Audit Disclaimer Note */}
       <div className="p-4 rounded-sm bg-[#F8F9FA] border border-[#DFE4E8] text-xs text-[#62717F] leading-relaxed">
-        <strong>{lang !== 'ar' ? 'Research Disclaimer' : 'إخلاء مسؤولية توثيقي'}:</strong> {t.monitor.disclaimer}
+        <strong>{lang === 'fr' ? 'Note méthodologique' : lang !== 'ar' ? 'Research Disclaimer' : 'إخلاء مسؤولية توثيقي'}:</strong> {t.monitor.disclaimer}
       </div>
 
       {/* Evidence Dossier Modal */}
