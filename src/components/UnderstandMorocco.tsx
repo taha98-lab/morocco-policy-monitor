@@ -47,11 +47,11 @@ export const UnderstandMorocco: React.FC<UnderstandMoroccoProps> = ({ lang }) =>
               </div>
 
               <h3 className="text-lg font-bold text-[#14202B] group-hover:text-[#12365A] transition-colors mb-3 leading-snug">
-                {lang === 'en' ? inst.titleEn : inst.titleAr}
+                {lang !== 'ar' ? inst.titleEn : inst.titleAr}
               </h3>
 
               <p className="text-xs sm:text-sm text-[#62717F] leading-relaxed mb-6">
-                {lang === 'en' ? inst.summaryEn : inst.summaryAr}
+                {lang !== 'ar' ? inst.summaryEn : inst.summaryAr}
               </p>
             </div>
 
@@ -74,10 +74,10 @@ export const UnderstandMorocco: React.FC<UnderstandMoroccoProps> = ({ lang }) =>
                 </div>
                 <div>
                   <span className="text-xs font-bold text-[#B88932] uppercase">
-                    {lang === 'en' ? 'Civic Guide' : 'دليل المؤسسات'} · {selectedInst.number}
+                    {lang !== 'ar' ? 'Civic Guide' : 'دليل المؤسسات'} · {selectedInst.number}
                   </span>
                   <h3 className="text-xl font-extrabold text-[#14202B]">
-                    {lang === 'en' ? selectedInst.titleEn : selectedInst.titleAr}
+                    {lang !== 'ar' ? selectedInst.titleEn : selectedInst.titleAr}
                   </h3>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export const UnderstandMorocco: React.FC<UnderstandMoroccoProps> = ({ lang }) =>
                 <span>{t.understand.keyResponsibilities}</span>
               </h4>
               <ul className="space-y-2.5">
-                {(lang === 'en' ? selectedInst.keyResponsibilitiesEn : selectedInst.keyResponsibilitiesAr).map((item, idx) => (
+                {(lang !== 'ar' ? selectedInst.keyResponsibilitiesEn : selectedInst.keyResponsibilitiesAr).map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#34424D] leading-relaxed">
                     <Check className="w-4 h-4 text-[#12365A] shrink-0 mt-0.5" />
                     <span>{item}</span>
@@ -123,14 +123,14 @@ export const UnderstandMorocco: React.FC<UnderstandMoroccoProps> = ({ lang }) =>
                 {t.understand.checksBalances}
               </span>
               <p className="text-xs sm:text-sm text-[#14202B] leading-relaxed">
-                {lang === 'en' ? selectedInst.checksAndBalancesEn : selectedInst.checksAndBalancesAr}
+                {lang !== 'ar' ? selectedInst.checksAndBalancesEn : selectedInst.checksAndBalancesAr}
               </p>
             </div>
 
             {/* Modal footer */}
             <div className="flex items-center justify-between pt-4 border-t border-[#DFE4E8]">
               <span className="text-xs text-[#62717F]">
-                {lang === 'en' ? selectedInst.officialBodyEn : selectedInst.officialBodyAr}
+                {lang !== 'ar' ? selectedInst.officialBodyEn : selectedInst.officialBodyAr}
               </span>
               <button
                 onClick={() => setSelectedInst(null)}
