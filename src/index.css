@@ -18,6 +18,7 @@
     background-color: #f8f9fa;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   [dir="rtl"] {
