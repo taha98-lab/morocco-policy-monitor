@@ -101,3 +101,11 @@ export const FRENCH_PROMISES: Record<string, any> = {
   "MPM-003": { area: "Protection sociale", title: "Généraliser la protection sociale et l’aide directe", target: "Généraliser l’assurance maladie obligatoire (AMO) et les transferts monétaires directs aux ménages vulnérables.", budget: "35 milliards MAD par an prévus dans les Lois de finances 2024 et 2025", status: "🟡 Mise en œuvre significative / transition structurelle" },
   "MPM-004": { area: "Eau et environnement", title: "Accélérer le transfert d’eau et le dessalement", target: "Transfert d’eau entre bassins (Sebou-Bouregreg) et station de dessalement de Casablanca d’une capacité annoncée de 300 millions de m³.", budget: "6 milliards MAD (liaison Sebou-Bouregreg) + 15 milliards MAD (dessalement de Casablanca en PPP)", status: "🟢 Objectif en bonne voie / étape stratégique réalisée" }
 };
+
+
+export const FRENCH_BUDGET: Record<string, any> = {
+  revenue: { title: "01 · Recettes de l’État", question: "D’où viennent les ressources de l’État ?" },
+  allocation: { title: "02 · Allocation budgétaire", question: "À quels secteurs les crédits sont-ils légalement affectés ?" },
+  execution: { title: "03 · Exécution budgétaire", question: "Qu’est-ce qui a effectivement été dépensé par rapport aux crédits prévus ?" },
+  outcomes: { title: "04 · Résultats pour les citoyens", question: "Quels changements concrets ont été observés sur le terrain ?" }
+};
