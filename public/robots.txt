@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://morocco-policy-monitor.vercel.app/sitemap.xml
