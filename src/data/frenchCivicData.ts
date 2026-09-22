@@ -99,7 +99,7 @@ export const FRENCH_PROMISE_DETAILS: Record<string, any> = {
   "MPM-001": {
     outputs: ["Plus de 200 000 contrats temporaires ont été conclus dans le cadre d’Awrach (2022–2024).", "11 200 microprojets ont été financés dans le cadre de Forsa.", "Les quotas de recrutement dans la fonction publique ont été pourvus, notamment dans l’éducation, la santé et l’intérieur."],
     outcomes: ["La création nette d’emplois a été fortement affectée par les pertes agricoles liées à la sécheresse.", "Le chômage national a atteint des niveaux élevés au cours de la période examinée.", "La création d’emplois non agricoles n’a pas entièrement compensé les pertes agricoles et l’arrivée de nouveaux actifs."],
-    uncertainty: "Les séries du HCP sont influencées par les chocs climatiques. L’évaluation doit distinguer les programmes temporaires d’insertion de la création durable d’emplois salariés.", historyLabels: ["Contraction liée à la COVID-19","Rebond post-pandémie","Sécheresse sévère et choc énergétique","Reprise du tourisme et de l’industrie","Croissance non agricole robuste","Prévision (BAM/MEF)"]
+    uncertainty: "Les séries du HCP sont influencées par les chocs climatiques. L’évaluation doit distinguer les programmes temporaires d’insertion de la création durable d’emplois salariés." 
   },
   "MPM-002": {
     outputs: ["Des programmes d’autonomisation économique des femmes, notamment Jisr, ont été déployés.", "Des dispositifs de soutien à la garde d’enfants et des mécanismes régionaux d’accompagnement ont été développés.", "Des rapports de budgétisation sensible au genre accompagnent les Lois de finances."],
