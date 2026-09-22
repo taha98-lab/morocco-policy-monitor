@@ -296,6 +296,7 @@ const TRANSLATIONS_BASE = {
       title: 'مبادرة وتطوير: طه خوبيزي (Taha Khobizi)',
       p1: 'أُطلق مرصد السياسات العمومية (Morocco Policy Monitor) وطُوّر بمبادرة مستقلة من طه خوبيزي كمشروع مدني غير حزبي لخدمة المعرفة العامة.',
       p2: 'صُمم المرصد لجعل منهجية العمل، المصادر الرسمية، الفرضيات الميزانياتية، وتصحيحات التدقيق مرئية ومتاحة للعموم بكل شفافية.',
+      p3: 'وبصفتي مؤسس المشروع، أنشر أيضاً أبحاثاً وتقارير مستقلة حول السياسات العمومية والعلاقات الدولية والحوكمة، مع فصل واضح بين التحليل الشخصي ومنهجية المرصد.'
       cardRole: 'باحث ومؤسس المبادرة',
       cardAffiliation: 'مرصد السياسات العمومية (MPM)',
       cardStatement: 'تُنشر المنهجية والأدلة علناً لتمكين المواطنين، الباحثين والصحفيين من فحص العمل ومساءلته والمساهمة في تطويره وتجويده المستمر.',
@@ -450,6 +451,7 @@ const TRANSLATIONS_BASE = {
       title: 'Conçu par Taha Khobizi',
       p1: 'Morocco Policy Monitor a été initié et développé par Taha Khobizi comme projet civique indépendant et non partisan.',
       p2: 'La plateforme rend visibles la méthodologie, les sources, les hypothèses budgétaires et les corrections apportées aux audits.',
+      p3: 'En tant que fondateur, je publie également des recherches et rapports indépendants sur les politiques publiques, les relations internationales et la gouvernance, en distinguant clairement ces travaux de la méthodologie du Monitor.'
       cardRole: 'Chercheur et fondateur',
       cardAffiliation: 'Morocco Policy Monitor',
       cardStatement: 'La méthodologie et les preuves sont publiées ouvertement afin que le travail puisse être examiné, contesté, relu par des pairs et amélioré.',
@@ -596,6 +598,7 @@ const FR = {
     title: 'Créé par Taha Khobizi',
     p1: 'Morocco Policy Monitor a été lancé et développé par Taha Khobizi comme projet indépendant et non partisan d’information civique.',
     p2: 'La plateforme rend visibles la méthodologie, les sources, les hypothèses budgétaires et les corrections.',
+    p3: 'En tant que fondateur, je publie également des recherches et rapports indépendants sur les politiques publiques, les relations internationales et la gouvernance, en distinguant clairement ces travaux de la méthodologie du Monitor.'
     cardRole: 'Chercheur et fondateur',
     cardAffiliation: 'Morocco Policy Monitor',
     cardStatement: 'La méthode et les preuves sont publiées afin que le travail puisse être examiné, contesté et amélioré.',
