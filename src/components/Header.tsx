@@ -19,8 +19,8 @@ export const Header: React.FC<HeaderProps> = ({ lang, onChangeLanguage }) => {
     { path: '/money', label: t.nav.money },
     { path: '/methodology', label: t.nav.methodology },
     { path: '/assistant', label: t.nav.assistant },
-    { path: '/accountability', label: t.nav.founder },
     { path: '/reports', label: t.nav.reports },
+    { path: '/accountability', label: t.nav.founder },
   ];
 
   const navigate = (path: string) => {
