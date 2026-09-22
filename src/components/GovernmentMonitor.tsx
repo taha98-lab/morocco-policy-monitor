@@ -31,6 +31,7 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
     const q = searchQuery.trim().toLowerCase();
 
     return PROMISES_DATA.filter((p) => {
+      const fr = FRENCH_PROMISES[p.id];
       const matchSearch =
         !q ||
         p.id.toLowerCase().includes(q) ||
@@ -39,7 +40,8 @@ export const GovernmentMonitor: React.FC<GovernmentMonitorProps> = ({ lang }) =>
         p.target.toLowerCase().includes(q) ||
         p.targetAr.toLowerCase().includes(q) ||
         p.area.toLowerCase().includes(q) ||
-        p.areaAr.toLowerCase().includes(q);
+        p.areaAr.toLowerCase().includes(q) ||
+        (lang === 'fr' && [fr?.title, fr?.target, fr?.area, fr?.status].some((value) => value?.toLowerCase().includes(q)));
 
       const matchArea = !selectedArea || (lang === 'fr' ? FRENCH_PROMISES[p.id]?.area === selectedArea : lang === 'ar' ? p.areaAr === selectedArea : p.area === selectedArea);
       const matchStatus = !selectedStatus || p.status === selectedStatus;
