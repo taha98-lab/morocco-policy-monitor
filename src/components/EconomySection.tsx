@@ -224,7 +224,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                     {/* Tooltip on hover */}
                     <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity bg-[#14202B] text-white text-[11px] font-mono px-2 py-1 rounded shadow-md pointer-events-none whitespace-nowrap z-20">
                       {point.value} {selectedChartIndicator.unit}
-                      {point.label ? ` · ${point.label}` : ''}
+                      {point.label ? ` · ${lang === 'fr' ? (FRENCH_ECONOMIC[selectedChartIndicator.id]?.historyLabels?.[idx] || point.label) : point.label}` : ''}
                     </div>
 
                     {/* Value label */}
@@ -254,7 +254,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
             <div className="mt-4 flex items-center justify-between text-xs text-[#62717F]">
               <span>{lang === 'fr' ? 'Dernière référence vérifiée' : lang !== 'ar' ? 'Latest verified benchmark' : 'آخر معطى مؤكد موثق'}</span>
               <span className="font-medium text-[#14202B]">
-                {selectedChartIndicator.historicalSeries[selectedChartIndicator.historicalSeries.length - 1]?.label || selectedChartIndicator.currentValue}
+                {lang === 'fr' ? (FRENCH_ECONOMIC[selectedChartIndicator.id]?.historyLabels?.[selectedChartIndicator.historicalSeries.length - 1] || selectedChartIndicator.currentValue) : selectedChartIndicator.historicalSeries[selectedChartIndicator.historicalSeries.length - 1]?.label || selectedChartIndicator.currentValue}
               </span>
             </div>
           </div>
