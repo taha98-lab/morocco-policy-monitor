@@ -141,6 +141,7 @@ const TRANSLATIONS_BASE = {
       title: 'Built by Taha Khobizi',
       p1: 'Morocco Policy Monitor was initiated and developed by Taha Khobizi as an independent, non-partisan civic-information project.',
       p2: 'The platform is built to make public-policy methodology, sources, budgetary assumptions, and audit corrections visible to every citizen.',
+      p3: 'As founder, I also publish independent research and reports on public policy, international relations, and governance, while keeping those analytical publications clearly distinct from the Monitor’s audit methodology.'
       cardRole: 'Researcher & Founder',
       cardAffiliation: 'Morocco Policy Monitor',
       cardStatement: 'Methodology and evidence are published openly so the work can be examined, challenged, peer-reviewed, and continuously improved by citizens and researchers.',
