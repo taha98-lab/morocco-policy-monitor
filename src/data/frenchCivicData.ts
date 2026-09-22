@@ -95,29 +95,6 @@ export const FRENCH_ECONOMIC: Record<string, any> = {
   "eco-treasury-debt": { name: "Dette du Trésor rapportée au PIB", category: "Finances publiques et dette", unit: "% du PIB", change: "−0,8 % sur deux ans", definition: "Encours de la dette directe de l’État, intérieure et extérieure, rapporté au PIB, hors certaines dettes non garanties des établissements et entreprises publics.", methodology: "La dette intérieure constitue la majeure partie du portefeuille du Trésor et est principalement libellée en dirhams ; la dette extérieure est largement contractée auprès de bailleurs multilatéraux.", historyLabels: ["2019","2020","2021","2022","2023","2024"] }
 };
 
-export const FRENCH_PROMISE_DETAILS: Record<string, any> = {
-  "MPM-001": {
-    outputs: ["Plus de 200 000 contrats temporaires ont été conclus dans le cadre d’Awrach (2022–2024).", "11 200 microprojets ont été financés dans le cadre de Forsa.", "Les quotas de recrutement dans la fonction publique ont été pourvus, notamment dans l’éducation, la santé et l’intérieur."],
-    outcomes: ["La création nette d’emplois a été fortement affectée par les pertes agricoles liées à la sécheresse.", "Le chômage national a atteint des niveaux élevés au cours de la période examinée.", "La création d’emplois non agricoles n’a pas entièrement compensé les pertes agricoles et l’arrivée de nouveaux actifs."],
-    uncertainty: "Les séries du HCP sont influencées par les chocs climatiques. L’évaluation doit distinguer les programmes temporaires d’insertion de la création durable d’emplois salariés." 
-  },
-  "MPM-002": {
-    outputs: ["Des programmes d’autonomisation économique des femmes, notamment Jisr, ont été déployés.", "Des dispositifs de soutien à la garde d’enfants et des mécanismes régionaux d’accompagnement ont été développés.", "Des rapports de budgétisation sensible au genre accompagnent les Lois de finances."],
-    outcomes: ["Le taux d’activité des femmes est resté nettement inférieur à l’objectif de 30 %.", "Une large majorité des femmes en âge de travailler reste en dehors de la population active formelle.", "La contraction de l’emploi agricole a particulièrement affecté certaines travailleuses familiales non rémunérées."],
-    uncertainty: "Les indicateurs du HCP suivent les normes internationales et ne mesurent pas pleinement le travail domestique et l’économie du care."
-  },
-  "MPM-003": {
-    outputs: ["La transition du RAMED vers l’AMO Tadamon a permis l’affiliation de millions de personnes auparavant vulnérables.", "Le Registre national de la population et le Registre social unifié ont été déployés.", "Les transferts directs ont commencé en décembre 2023 et couvrent plusieurs millions de ménages."],
-    outcomes: ["La couverture formelle s’est fortement élargie et des transferts mensuels sont versés directement aux ménages éligibles.", "Des difficultés persistent concernant les remboursements et les dépenses de santé restant à la charge des ménages.", "Des recours administratifs portent notamment sur les critères d’éligibilité du registre social."],
-    uncertainty: "La soutenabilité financière du dispositif et la qualité effective de l’accès aux soins nécessitent un suivi distinct de la seule couverture administrative."
-  },
-  "MPM-004": {
-    outputs: ["La liaison hydraulique Sebou–Bouregreg a été réalisée dans un délai court.", "Des volumes d’eau ont été transférés afin de renforcer l’approvisionnement des axes urbains de Rabat et Casablanca.", "Le projet de dessalement de Casablanca a été lancé avec une capacité annoncée de 300 millions de m³ par an."],
-    outcomes: ["La liaison a renforcé la sécurité de l’approvisionnement en eau potable dans les zones concernées.", "Les restrictions d’irrigation restent importantes dans plusieurs régions touchées par la sécheresse.", "Le coût énergétique du dessalement demeure un enjeu de long terme."],
-    uncertainty: "La réalisation des infrastructures ne supprime pas la vulnérabilité structurelle liée au climat et à la surexploitation des ressources en eau."
-  }
-};
-
 export const FRENCH_PROMISES: Record<string, any> = {
   "MPM-001": {
     area: "Emploi",
