@@ -22,7 +22,29 @@ const SOURCE_URLS: Record<string, string> = {
   "Ordre National des Notaires": "https://www.notaires.ma/"
 };
 
-const sourceUrlFor = (institution: string) =>
+const SOURCE_TITLE_URLS: Record<string, string> = {
+  "Enquête nationale sur l’emploi — notes de conjoncture": "https://www.hcp.ma/Marche-du-travail_r423.html",
+  "Déclaration du Chef du Gouvernement devant le Parlement": "https://www.chambredesrepresentants.ma/",
+  "Rapport annuel sur la situation économique": "https://www.bkam.ma/",
+  "La femme marocaine en chiffres": "https://www.hcp.ma/",
+  "Rapport sur le Budget Genre accompagnant le PLF": "https://www.finances.gov.ma/fr/vous-orientez/Pages/plf2024.aspx",
+  "Avis sur la participation des femmes au développement": "https://www.cese.ma/",
+  "Loi-cadre n° 09-21 relative à la protection sociale": "https://www.sgg.gov.ma/",
+  "Aides sociales directes — typologie et critères": "https://www.anss.gov.ma/fr/typologies-d-aides",
+  "Orientations générales du PLF 2024": "https://www.finances.gov.ma/fr/vous-orientez/Pages/plf2024.aspx",
+  "Rapport sur la situation hydrique nationale": "https://www.maroc.ma/fr/actualites/le-dessalement-au-service-de-la-souverainete-hydrique",
+  "Discours du Trône sur la sécurité hydrique": "https://www.maroc.ma/fr/discours-messages-royaux/discours-royaux/sm-le-roi-adresse-un-discours-la-nation-loccasion-de-la-fete-du-trone-texte-integral",
+  "Bulletin de situation des barrages": "https://www.equipement.gov.ma/",
+  "Feuille de route 2022–2026 : Pour une école publique de qualité": "https://www.men.gov.ma/fr/etablissements-pionniers",
+  "Établissements pionniers": "https://www.men.gov.ma/fr/%C3%A9tablissements-pionniers",
+  "Évaluation d’impact du programme Écoles Pionnières": "https://www.men.gov.ma/fr/%C3%A9tablissements-pionniers",
+  "Budget Citoyen / Loi de finances 2024 — aide au logement": "https://www.finances.gov.ma/Publication/db/2023/Budget%20Citoyen_PLF%202024_VFR.pdf",
+  "Bilan de la plateforme Daam Sakane": "https://www.maroc.ma/",
+  "Statistiques de l’Ordre National des Notaires du Maroc": "https://www.notaires.ma/"
+};
+
+const sourceUrlFor = (institution: string, title?: string) =>
+  (title && SOURCE_TITLE_URLS[title]) ||
   SOURCE_URLS[institution] ||
   Object.entries(SOURCE_URLS).find(([key]) => institution.includes(key) || key.includes(institution))?.[1] ||
   "https://www.maroc.ma/";
@@ -218,7 +240,12 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="font-mono font-bold text-[#14202B]">{log.date}</span>
                     <span className="text-[#62717F]">·</span>
-                    <span className="font-semibold text-[#B88932]">{log.source}</span>
+                    <a
+                      href={sourceUrlFor(log.source, log.source)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-[#B88932] hover:underline"
+                    >{log.source}</a>
                     <span className="text-[#62717F]">({log.type})</span>
                   </div>
                   <p className="text-[#34424D]">{log.summary}</p>
@@ -236,7 +263,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               {(lang === 'fr' ? (FRENCH_PROMISES[promise.id]?.primarySources || []) : promise.primarySources).map((src: any, i: number) => (
                 <a
                   key={i}
-                  href={sourceUrlFor(src.institution)}
+                  href={sourceUrlFor(src.institution, src.title)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between gap-3 p-2 rounded bg-[#F8F9FA] border border-[#EEF1F4] hover:border-[#12365A] hover:bg-white transition-colors"
