@@ -5,6 +5,16 @@ import { ECONOMIC_INDICATORS } from '../data/civicData';
 import { FRENCH_ECONOMIC } from '../data/frenchCivicData';
 import { TrendingUp, TrendingDown, Calendar, Database, Info, LineChart, ChevronDown, ChevronUp } from 'lucide-react';
 
+const ECONOMIC_SOURCE_URLS: Record<string, string> = {
+  "Haut-Commissariat au Plan (HCP)": "https://www.hcp.ma/",
+  "Haut-Commissariat au Plan (HCP) & Bank Al-Maghrib": "https://www.hcp.ma/",
+  "Ministère de l’Économie et des Finances": "https://www.finances.gov.ma/",
+  "Bank Al-Maghrib": "https://www.bkam.ma/"
+};
+
+const economicSourceUrl = (institution: string) =>
+  ECONOMIC_SOURCE_URLS[institution] || "https://www.maroc.ma/";
+
 interface EconomySectionProps {
   lang: Language;
 }
@@ -131,9 +141,14 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                 <div className="text-xs text-[#62717F] space-y-1 pt-3 border-t border-[#EEF1F4]">
                   <div className="flex items-center gap-1.5">
                     <Database className="w-3.5 h-3.5 text-[#B88932] shrink-0" />
-                    <span className="truncate">
+                    <a
+                      href={economicSourceUrl(ind.sourceInstitution)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="truncate hover:text-[#12365A] hover:underline"
+                    >
                       <b>{t.economy.source}:</b> {lang === 'ar' ? ind.sourceInstitutionAr : ind.sourceInstitution}
-                    </span>
+                    </a>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-[#62717F] shrink-0" />
@@ -193,9 +208,14 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
 
             <div className="text-xs text-[#62717F]">
               <span>{t.economy.source}: </span>
-              <strong className="text-[#14202B]">
+              <a
+                href={economicSourceUrl(selectedChartIndicator.sourceInstitution)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#14202B] hover:text-[#12365A] hover:underline"
+              >
                 {lang === 'ar' ? selectedChartIndicator.sourceInstitutionAr : selectedChartIndicator.sourceInstitution}
-              </strong>
+              </a>
             </div>
           </div>
 
