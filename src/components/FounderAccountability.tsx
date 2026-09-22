@@ -34,8 +34,11 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
           <p className="text-base sm:text-lg text-[#34424D] leading-relaxed mb-4">
             {t.founder.p1}
           </p>
-          <p className="text-sm sm:text-base text-[#62717F] leading-relaxed mb-8">
+          <p className="text-sm sm:text-base text-[#62717F] leading-relaxed mb-4">
             {t.founder.p2}
+          </p>
+          <p className="text-sm sm:text-base text-[#34424D] leading-relaxed mb-8">
+            {t.founder.p3}
           </p>
 
           {/* Open Correction Feedback Box */}
@@ -79,20 +82,19 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
 
         {/* Founder Card */}
         <div className="lg:col-span-5">
-          <div className="bg-white border-2 border-[#12365A] rounded-sm p-8 shadow-md relative">
-            <div className="w-12 h-12 rounded-sm bg-[#F5EEDF] text-[#B88932] flex items-center justify-center font-bold mb-6">
-              <Shield className="w-6 h-6" />
+          <div className="bg-white border-2 border-[#12365A] rounded-sm p-6 sm:p-8 shadow-md relative">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#EEF2F6] border border-[#DFE4E8] overflow-hidden flex items-center justify-center shrink-0">
+                <span className="text-2xl font-extrabold text-[#12365A]">TK</span>
+              </div>
+              <div>
+                <span className="text-xs font-bold text-[#B88932] uppercase tracking-wider block mb-1">
+                  {t.founder.cardRole}
+                </span>
+                <h3 className="text-2xl font-extrabold text-[#14202B] mb-1">Taha Khobizi</h3>
+                <span className="text-xs font-semibold text-[#12365A] block">{t.founder.cardAffiliation}</span>
+              </div>
             </div>
-
-            <span className="text-xs font-bold text-[#B88932] uppercase tracking-wider block mb-1">
-              {t.founder.cardRole}
-            </span>
-            <h3 className="text-2xl font-extrabold text-[#14202B] mb-1">
-              Taha Khobizi
-            </h3>
-            <span className="text-xs font-semibold text-[#12365A] block mb-6">
-              {t.founder.cardAffiliation}
-            </span>
 
             <div className="pt-4 border-t border-[#DFE4E8] text-xs sm:text-sm text-[#62717F] leading-relaxed">
               <p>{t.founder.cardStatement}</p>
