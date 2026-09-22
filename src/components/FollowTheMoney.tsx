@@ -108,7 +108,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                   <span className="text-sm font-bold text-white">
-                    {lang === 'fr' ? (FRENCH_BUDGET[stage.stageId]?.items?.[idx]?.name || item.nameEn) : lang === 'ar' ? item.nameAr : item.nameEn}
+                    {lang === 'fr' ? (FRENCH_BUDGET[currentStage.stageId]?.items?.[idx]?.name || item.nameEn) : lang === 'ar' ? item.nameAr : item.nameEn}
                   </span>
                   <div className="flex items-center gap-3 font-mono text-xs">
                     {item.amountMmdh > 0 && (
@@ -135,7 +135,7 @@ export const FollowTheMoney: React.FC<FollowTheMoneyProps> = ({ lang }) => {
                 )}
 
                 <p className="text-xs text-[#B9C3CB] leading-relaxed">
-                  {lang === 'fr' ? (FRENCH_BUDGET[stage.stageId]?.items?.[idx]?.detail || item.detailEn) : lang === 'ar' ? item.detailAr : item.detailEn}
+                  {lang === 'fr' ? (FRENCH_BUDGET[currentStage.stageId]?.items?.[idx]?.detail || item.detailEn) : lang === 'ar' ? item.detailAr : item.detailEn}
                 </p>
               </div>
             ))}

@@ -109,7 +109,7 @@ export const UnderstandMorocco: React.FC<UnderstandMoroccoProps> = ({ lang }) =>
                 <span>{t.understand.keyResponsibilities}</span>
               </h4>
               <ul className="space-y-2.5">
-                {(lang === 'fr' ? FRENCH_INSTITUTIONS[selectedInst.id]?.responsibilities : lang === 'ar' ? selectedInst.keyResponsibilitiesAr : selectedInst.keyResponsibilitiesEn).map((item, idx) => (
+                {((lang === 'fr' ? FRENCH_INSTITUTIONS[selectedInst.id]?.responsibilities : lang === 'ar' ? selectedInst.keyResponsibilitiesAr : selectedInst.keyResponsibilitiesEn) || []).map((item: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#34424D] leading-relaxed">
                     <Check className="w-4 h-4 text-[#12365A] shrink-0 mt-0.5" />
                     <span>{item}</span>

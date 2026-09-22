@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ lang, onChangeLanguage }) => {
               {t.brandName}<Shield className="w-3.5 h-3.5 text-[#B88932]" />
             </span>
             <span className="text-xs text-[#62717F] font-medium leading-none mt-0.5">
-              {lang === 'ar' ? 'Morocco Policy Monitor · معلومات مستقلة' : lang === 'fr' ? 'مرصد السياسات العمومية · Maroc' : 'مرصد السياسات العمومية · Morocco'}
+              {lang === 'ar' ? 'مرصد السياسات العمومية · معلومات مستقلة' : lang === 'fr' ? 'Information civique indépendante · Maroc' : 'مرصد السياسات العمومية · Morocco'}
             </span>
           </div>
         </button>

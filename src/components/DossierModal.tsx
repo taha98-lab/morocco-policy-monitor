@@ -191,7 +191,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                 <span>{t.dossier.outputs}</span>
               </h5>
               <ul className="space-y-2 text-xs text-[#34424D]">
-                {(lang === 'fr' ? FRENCH_PROMISE_DETAILS[promise.id]?.outputs : lang !== 'ar' ? promise.implementationOutputs : promise.implementationOutputsAr).map((out, i) => (
+                {((lang === 'fr' ? FRENCH_PROMISE_DETAILS[promise.id]?.outputs : lang !== 'ar' ? promise.implementationOutputs : promise.implementationOutputsAr) || []).map((out: string, i: number) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-[#12365A] font-bold">•</span>
                     <span>{out}</span>
@@ -207,7 +207,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                 <span>{t.dossier.outcomes}</span>
               </h5>
               <ul className="space-y-2 text-xs text-[#34424D]">
-                {(lang === 'fr' ? FRENCH_PROMISE_DETAILS[promise.id]?.outcomes : lang !== 'ar' ? promise.citizenOutcomes : promise.citizenOutcomesAr).map((out, i) => (
+                {((lang === 'fr' ? FRENCH_PROMISE_DETAILS[promise.id]?.outcomes : lang !== 'ar' ? promise.citizenOutcomes : promise.citizenOutcomesAr) || []).map((out: string, i: number) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-[#B22222] font-bold">•</span>
                     <span>{out}</span>

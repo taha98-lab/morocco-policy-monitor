@@ -15,6 +15,17 @@ const ECONOMIC_SOURCE_URLS: Record<string, string> = {
 const economicSourceUrl = (institution: string) =>
   ECONOMIC_SOURCE_URLS[institution] || "https://www.maroc.ma/";
 
+const getSourceInstitution = (inst: string, instAr: string, l: Language) => {
+  if (l === 'ar') return instAr;
+  if (l === 'fr') {
+    if (inst.includes('Haut-Commissariat au Plan')) return 'Haut-Commissariat au Plan (HCP)';
+    if (inst.includes('Bank Al-Maghrib / Ministry')) return 'Bank Al-Maghrib / Ministère de l’Économie et des Finances';
+    if (inst.includes('Bank Al-Maghrib')) return 'Bank Al-Maghrib (BAM)';
+    if (inst.includes('Ministry of Economy & Finance')) return 'Ministère de l’Économie et des Finances (Direction du Trésor)';
+  }
+  return inst;
+};
+
 interface EconomySectionProps {
   lang: Language;
 }
@@ -99,7 +110,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                     title="View historical trend chart"
                   >
                     <LineChart className="w-3.5 h-3.5" />
-                    <span>{lang !== 'ar' ? 'Trend' : 'الرسم'}</span>
+                    <span>{lang === 'fr' ? 'Évolution' : lang !== 'ar' ? 'Trend' : 'الرسم'}</span>
                   </button>
                 </div>
 
@@ -147,7 +158,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                       rel="noopener noreferrer"
                       className="truncate hover:text-[#12365A] hover:underline"
                     >
-                      <b>{t.economy.source}:</b> {lang === 'ar' ? ind.sourceInstitutionAr : ind.sourceInstitution}
+                      <b>{t.economy.source}:</b> {getSourceInstitution(ind.sourceInstitution, ind.sourceInstitutionAr, lang)}
                     </a>
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -214,7 +225,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                 rel="noopener noreferrer"
                 className="font-semibold text-[#14202B] hover:text-[#12365A] hover:underline"
               >
-                {lang === 'ar' ? selectedChartIndicator.sourceInstitutionAr : selectedChartIndicator.sourceInstitution}
+                {getSourceInstitution(selectedChartIndicator.sourceInstitution, selectedChartIndicator.sourceInstitutionAr, lang)}
               </a>
             </div>
           </div>

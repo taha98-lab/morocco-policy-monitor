@@ -244,38 +244,114 @@ export const FRENCH_PROMISE_DETAILS: Record<string, any> = {
 export const FRENCH_BUDGET: Record<string, any> = {
   revenue: {
     title: "01 · Recettes de l’État",
-    question: "D’où viennent les ressources de l’État ?",
+    question: "D’où proviennent les ressources et recettes publiques ?",
     items: [
-      { name: "Recettes fiscales", detail: "Impôts directs et indirects qui constituent une part majeure des recettes ordinaires de l’État." },
-      { name: "Recettes non fiscales", detail: "Droits, redevances, produits des établissements publics et autres recettes hors impôts." },
-      { name: "Emprunt", detail: "Ressources de financement mobilisées par le Trésor pour couvrir le besoin de financement." }
+      {
+        name: "Impôts directs (IS & IR)",
+        detail: "Impôt sur les sociétés (IS) et impôt sur le revenu (IR) recouvrés par la Direction Générale des Impôts (DGI)."
+      },
+      {
+        name: "Impôts indirects (TVA intérieure et à l’importation, TIC)",
+        detail: "Taxe sur la valeur ajoutée (TVA) sur les biens de consommation et taxes intérieures de consommation (TIC) sur les carburants, tabacs et boissons."
+      },
+      {
+        name: "Droits de douane",
+        detail: "Tarifs douaniers et droits d'importation administrés par la Douane marocaine (ADII)."
+      },
+      {
+        name: "Recettes non fiscales et dividendes des entreprises publiques",
+        detail: "Dividendes perçus sur les participations publiques (Groupe OCP, Maroc Telecom, Bank Al-Maghrib) et produits de la gestion du patrimoine de l’État."
+      },
+      {
+        name: "Financement du Trésor et emprunts (intérieur & extérieur)",
+        detail: "Émissions de bons du Trésor sur le marché obligataire national et tirages sur emprunts extérieurs multilatéraux et bilatéraux."
+      },
+      {
+        name: "Comptes d’affectation spéciale du Trésor (CST)",
+        detail: "Fonds dédiés par la loi à des missions ciblées, tels que le Fonds de soutien à la protection sociale, le Fonds routier et le Fonds Mohammed VI pour l’Investissement."
+      }
     ]
   },
   allocation: {
     title: "02 · Allocation budgétaire",
-    question: "À quels secteurs les crédits sont-ils légalement affectés ?",
+    question: "Comment les crédits votés sont-ils répartis par mission sectorielle ?",
     items: [
-      { name: "Dépenses de fonctionnement", detail: "Crédits destinés au fonctionnement courant des administrations et services publics." },
-      { name: "Dépenses d’investissement", detail: "Crédits consacrés aux infrastructures, équipements et projets d’investissement public." },
-      { name: "Transferts et subventions", detail: "Crédits transférés à des ménages, établissements ou dispositifs publics selon les règles budgétaires." }
+      {
+        name: "Éducation nationale et enseignement supérieur",
+        detail: "Gestion des établissements scolaires, revalorisation salariale des enseignants, campus universitaires et déploiement du modèle des Écoles pionnières."
+      },
+      {
+        name: "Service de la dette publique (intérêts et amortissements)",
+        detail: "Remboursement du capital et paiement des intérêts de la dette du Trésor à moyen et long termes."
+      },
+      {
+        name: "Défense nationale et Intérieur (sécurité et souveraineté)",
+        detail: "Modernisation des Forces Armées Royales, Direction Générale de la Sûreté Nationale (DGSN), Gendarmerie Royale, Protection civile et administration territoriale."
+      },
+      {
+        name: "Santé, protection sociale et aide directe",
+        detail: "Allocations directes aux familles (Aide Sociale Directe), prise en charge des cotisations AMO Tadamon auprès de la CNSS et modernisation des hôpitaux régionaux."
+      },
+      {
+        name: "Eau, infrastructures, transport et agriculture",
+        detail: "Stations de dessalement d’eau de mer, autoroutes hydrauliques d’urgence, barrages, extension de la ligne à grande vitesse (LGV) et pistes rurales."
+      },
+      {
+        name: "Caisse de compensation (subventions)",
+        detail: "Soutien aux prix réglementés du gaz butane et du sucre raffiné destiné aux ménages."
+      },
+      {
+        name: "Autres ministères et services publics",
+        detail: "Justice, Affaires étrangères, Culture, Jeunesse, Habous et Affaires islamiques, Environnement et institutions constitutionnelles."
+      }
     ]
   },
   execution: {
     title: "03 · Exécution budgétaire",
-    question: "Qu’est-ce qui a effectivement été dépensé par rapport aux crédits prévus ?",
+    question: "Quel est le taux de décaissement effectif des crédits ouverts ?",
     items: [
-      { name: "Crédits engagés", detail: "Montants juridiquement engagés pour réaliser des dépenses autorisées." },
-      { name: "Crédits ordonnancés", detail: "Dépenses ayant franchi les étapes administratives nécessaires à leur paiement." },
-      { name: "Crédits payés", detail: "Montants effectivement décaissés par le Trésor." }
+      {
+        name: "Dépenses de personnel (masse salariale publique)",
+        detail: "Taux d’émission proche de 100 %. Les traitements des fonctionnaires, enseignants, personnels soignants et forces publiques sont ordonnancés mensuellement avec régularité."
+      },
+      {
+        name: "Matériel et dépenses courantes de fonctionnement",
+        detail: "Consommables, baux administratifs, maintenance informatique, fluides et fonctionnement quotidien des services de l’État."
+      },
+      {
+        name: "Exécution des dépenses d’investissement",
+        detail: "Taux de liquidation effectif compris entre 78 % et 83 % selon la Cour des comptes, tempéré par les délais de passation des marchés et les procédures foncières."
+      },
+      {
+        name: "Décaissements des Comptes spéciaux du Trésor (CST)",
+        detail: "Transferts automatisés de l’Aide sociale directe et crédits des fonds d'infrastructure bénéficiant de circuits de paiement dédiés."
+      },
+      {
+        name: "Remboursement des échéances de la dette",
+        detail: "Paiement intégral à 100 % des échéances souveraines intérieures et extérieures conformément aux calendriers financiers."
+      }
     ]
   },
   outcomes: {
     title: "04 · Résultats pour les citoyens",
-    question: "Quels changements concrets ont été observés sur le terrain ?",
+    question: "Quelles transformations mesurables sont observées dans le quotidien ?",
     items: [
-      { name: "Réalisation", detail: "Infrastructures, services ou dispositifs effectivement livrés par l’administration." },
-      { name: "Résultats", detail: "Évolutions observables pour les bénéficiaires et les citoyens." },
-      { name: "Impact", detail: "Effets plus larges et durables, qui nécessitent une attribution prudente." }
+      {
+        name: "Filet de sécurité garanti pour 3,8 millions de ménages",
+        detail: "Les virements mensuels directs apportent un soutien indispensable face à l’inflation alimentaire aux foyers marocains les plus modestes."
+      },
+      {
+        name: "Alimentation en eau potable préservée sur l’axe Rabat-Casablanca",
+        detail: "L’interconnexion Sebou–Bouregreg a transféré plus de 400 millions de m³ d’eau brute, évitant des restrictions sévères en ville, bien que la sécheresse persiste en milieu rural."
+      },
+      {
+        name: "Chômage des jeunes persistant et contrainte structurelle",
+        detail: "Malgré l’effort d’investissement, la croissance économique n’a pas résorbé les pertes d’emplois agricoles, maintenant le chômage des jeunes urbains à un niveau élevé."
+      },
+      {
+        name: "Réformes pédagogiques des apprentissages sous évaluation",
+        detail: "Les évaluations d’impact dans les Écoles pionnières attestent de progrès mesurables dans les savoirs fondamentaux, au cœur d’une transformation de long terme."
+      }
     ]
   }
 };

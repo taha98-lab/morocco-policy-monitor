@@ -71,7 +71,7 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({ lang }) 
 
                 {isExpanded && (
                   <div className="mt-3 p-3 rounded-sm bg-[#F8F9FA] border border-[#DFE4E8] text-xs space-y-2 animate-in fade-in">
-                    {(lang === 'fr' ? FRENCH_METHODOLOGY[step.stepNumber]?.standards : lang === 'ar' ? step.auditStandardAr : step.auditStandardEn).map((std, i) => (
+                    {((lang === 'fr' ? FRENCH_METHODOLOGY[step.stepNumber]?.standards : lang === 'ar' ? step.auditStandardAr : step.auditStandardEn) || []).map((std: string, i: number) => (
                       <div key={i} className="flex items-start gap-2 text-[#34424D]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#B88932] shrink-0 mt-0.5" />
                         <span>{std}</span>

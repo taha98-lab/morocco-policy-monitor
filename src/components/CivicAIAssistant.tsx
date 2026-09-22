@@ -166,7 +166,9 @@ export const CivicAIAssistant: React.FC<CivicAIAssistantProps> = ({ lang }) => {
               <div>
                 <p className="font-semibold">{error}</p>
                 <p className="mt-1 text-[11px] text-rose-700">
-                  {lang !== 'ar'
+                  {lang === 'fr'
+                    ? 'Conseil : Vous pouvez continuer à explorer les indicateurs officiels, les dossiers d’audit et les flux budgétaires directement sur la plateforme.'
+                    : lang !== 'ar'
                     ? 'Tip: You can still explore the official indicators, government audits, and budget flows directly on this platform.'
                     : 'تنبيه: يمكنك مواصلة استكشاف المؤشرات الرسمية وسجلات التدقيق عبر أقسام المنصة.'}
                 </p>

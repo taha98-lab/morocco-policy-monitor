@@ -84,20 +84,20 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
         <div className="lg:col-span-5">
           <div className="bg-white border-2 border-[#12365A] rounded-sm p-6 sm:p-8 shadow-md relative">
             <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#EEF2F6] border border-[#DFE4E8] overflow-hidden flex items-center justify-center shrink-0">
-                <span className="text-2xl font-extrabold text-[#12365A]">TK</span>
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#EEF2F6] border border-[#DFE4E8] overflow-hidden shrink-0">
                 <img
                   src="/founder-photo.jpg"
-                  alt="Taha Khobizi"
+                  alt={lang === 'ar' ? 'طه خوبيزي' : 'Taha Khobizi'}
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
               </div>
               <div>
                 <span className="text-xs font-bold text-[#B88932] uppercase tracking-wider block mb-1">
                   {t.founder.cardRole}
                 </span>
-                <h3 className="text-2xl font-extrabold text-[#14202B] mb-1">Taha Khobizi</h3>
+                <h3 className="text-2xl font-extrabold text-[#14202B] mb-1">
+                  {lang === 'ar' ? 'طه خوبيزي' : 'Taha Khobizi'}
+                </h3>
                 <span className="text-xs font-semibold text-[#12365A] block">{t.founder.cardAffiliation}</span>
               </div>
             </div>

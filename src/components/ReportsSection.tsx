@@ -53,7 +53,7 @@ export const ReportsSection: React.FC<ReportsSectionProps> = ({ lang }) => {
           </div>
 
           <div className="mt-8 pt-6 border-t border-[#DFE4E8] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#62717F]">
-            <div className="flex items-center gap-2"><User className="w-4 h-4 text-[#B88932]" /><span>{t.author}: <strong className="text-[#14202B]">Taha Khobizi</strong></span></div>
+            <div className="flex items-center gap-2"><User className="w-4 h-4 text-[#B88932]" /><span>{t.author}: <strong className="text-[#14202B]">{lang === 'ar' ? 'طه خوبيزي' : 'Taha Khobizi'}</strong></span></div>
             <div className="flex items-center gap-2"><Languages className="w-4 h-4 text-[#B88932]" /><span>English · Français · العربية</span></div>
           </div>
         </div>
