@@ -86,6 +86,12 @@ export const FounderAccountability: React.FC<FounderAccountabilityProps> = ({ la
             <div className="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
               <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#EEF2F6] border border-[#DFE4E8] overflow-hidden flex items-center justify-center shrink-0">
                 <span className="text-2xl font-extrabold text-[#12365A]">TK</span>
+                <img
+                  src="/founder-photo.jpg"
+                  alt="Taha Khobizi"
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
               </div>
               <div>
                 <span className="text-xs font-bold text-[#B88932] uppercase tracking-wider block mb-1">
