@@ -17,7 +17,7 @@ const TRANSLATIONS_BASE = {
     languageLabel: 'Change language',
     mobileMenuLabel: 'Open menu',
     hero: {
-      eyebrow: 'INDEPENDENT CIVIC INFORMATION · ENGLISH / العربية',
+      eyebrow: 'INDEPENDENT CIVIC INFORMATION',
       titleLine1: 'Understand Morocco.',
       titleLine2: 'Follow the policies.',
       titleLine3: 'Follow the money.',
@@ -173,7 +173,7 @@ const TRANSLATIONS_BASE = {
     languageLabel: 'تغيير اللغة',
     mobileMenuLabel: 'فتح القائمة',
     hero: {
-      eyebrow: 'معلومات مدنية مستقلة · العربية / ENGLISH',
+      eyebrow: 'معلومات مدنية مستقلة',
       titleLine1: 'افهم المغرب.',
       titleLine2: 'تتبع السياسات.',
       titleLine3: 'تتبع المال العام.',
@@ -328,7 +328,7 @@ const TRANSLATIONS_BASE = {
     languageLabel: 'Changer de langue',
     mobileMenuLabel: 'Ouvrir le menu',
     hero: {
-      eyebrow: 'INFORMATION CIVIQUE INDÉPENDANTE · FRANÇAIS / العربية / ENGLISH',
+      eyebrow: 'INFORMATION CIVIQUE INDÉPENDANTE',
       titleLine1: 'Comprendre le Maroc.',
       titleLine2: 'Suivre les politiques.',
       titleLine3: 'Suivre les finances.',
