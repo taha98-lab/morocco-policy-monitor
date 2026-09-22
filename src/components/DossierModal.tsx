@@ -4,6 +4,29 @@ import { TRANSLATIONS } from '../data/translations';
 import { FRENCH_PROMISES, FRENCH_PROMISE_DETAILS } from '../data/frenchCivicData';
 import { X, FileText, CheckCircle2, AlertTriangle, Scale, Coins, ExternalLink, Copy, Check, Printer } from 'lucide-react';
 
+const SOURCE_URLS: Record<string, string> = {
+  "Haut-Commissariat au Plan (HCP)": "https://www.hcp.ma/",
+  "Chambre des représentants": "https://www.chambredesrepresentants.ma/",
+  "Bank Al-Maghrib": "https://www.bkam.ma/",
+  "Ministère de l’Économie et des Finances": "https://www.finances.gov.ma/",
+  "Ministère de l’Équipement et de l’Eau": "https://www.equipement.gov.ma/",
+  "Cabinet Royal": "https://www.maroc.ma/",
+  "Direction Générale de l’Hydraulique": "https://www.equipement.gov.ma/",
+  "Ministère de l’Éducation nationale": "https://www.men.gov.ma/",
+  "J-PAL / ONDH": "https://www.j-pal.org/",
+  "CSEFRS": "https://www.csefrs.ma/",
+  "Agence Nationale du Soutien Social (ANSS)": "https://www.anss.gov.ma/",
+  "Secrétariat Général du Gouvernement / Bulletin officiel": "https://www.sgg.gov.ma/",
+  "CESE": "https://www.cese.ma/",
+  "Ministère de l’Aménagement du Territoire et de l’Habitat": "https://www.mhpv.gov.ma/",
+  "Ordre National des Notaires": "https://www.notaires.ma/"
+};
+
+const sourceUrlFor = (institution: string) =>
+  SOURCE_URLS[institution] ||
+  Object.entries(SOURCE_URLS).find(([key]) => institution.includes(key) || key.includes(institution))?.[1] ||
+  "https://www.maroc.ma/";
+
 interface DossierModalProps {
   promise: PromiseRecord;
   lang: Language;
@@ -99,7 +122,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
                   {t.monitor.confidenceLabel}
                 </span>
                 <span className="font-bold text-[#12365A]">
-                  {lang !== 'ar' ? promise.confidence : promise.confidenceAr}
+                  {lang === 'fr' ? (promise.confidence === 'High' ? 'Élevé' : promise.confidence === 'Medium' ? 'Moyen' : 'Faible') : lang !== 'ar' ? promise.confidence : promise.confidenceAr}
                 </span>
               </div>
             </div>
@@ -122,7 +145,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               <span>{t.dossier.officialText}</span>
             </h4>
             <blockquote className="p-3.5 rounded bg-[#F1F4F7] text-xs sm:text-sm font-serif italic text-[#14202B] leading-relaxed border-l-2 border-[#12365A]">
-              {lang !== 'ar' ? promise.officialDeclaration : promise.officialDeclarationAr}
+              {lang === 'fr' ? FRENCH_PROMISES[promise.id]?.officialDeclaration : lang !== 'ar' ? promise.officialDeclaration : promise.officialDeclarationAr}
             </blockquote>
           </div>
 
@@ -189,7 +212,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               {t.dossier.timeline}
             </h4>
             <div className="border-l-2 border-[#DFE4E8] pl-4 space-y-4 text-xs">
-              {promise.evidenceLog.map((log, i) => (
+              {(lang === 'fr' ? (FRENCH_PROMISES[promise.id]?.evidenceLog || []) : promise.evidenceLog).map((log: any, i: number) => (
                 <div key={i} className="relative">
                   <div className="absolute -left-[21px] top-0.5 w-2.5 h-2.5 rounded-full bg-[#12365A] ring-4 ring-white" />
                   <div className="flex items-center gap-2 mb-0.5">
@@ -210,14 +233,20 @@ export const DossierModal: React.FC<DossierModalProps> = ({ promise, lang, onClo
               {t.dossier.primarySources}
             </h4>
             <div className="space-y-1.5 text-xs">
-              {promise.primarySources.map((src, i) => (
-                <div key={i} className="flex items-center justify-between p-2 rounded bg-[#F8F9FA] border border-[#EEF1F4]">
+              {(lang === 'fr' ? (FRENCH_PROMISES[promise.id]?.primarySources || []) : promise.primarySources).map((src: any, i: number) => (
+                <a
+                  key={i}
+                  href={sourceUrlFor(src.institution)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-3 p-2 rounded bg-[#F8F9FA] border border-[#EEF1F4] hover:border-[#12365A] hover:bg-white transition-colors"
+                >
                   <div>
                     <span className="font-semibold text-[#14202B]">{src.title}</span>
                     <span className="text-[#62717F] block text-[11px]">{src.institution} ({src.date})</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#62717F]" />
-                </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#12365A] shrink-0" />
+                </a>
               ))}
             </div>
           </div>
