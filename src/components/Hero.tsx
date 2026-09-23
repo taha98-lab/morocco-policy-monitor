@@ -34,6 +34,43 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
             <span className="text-[#14202B]">{t.hero.titleLine3}</span>
           </h1>
 
+          {/* Featured Election Brief 001 Banner */}
+          <div className="mb-8 p-4 sm:p-5 bg-gradient-to-r from-[#F5EEDF] via-[#FAF6EE] to-white border-l-4 border-[#B88932] border-y border-r border-[#E8D6B4] rounded-sm shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded bg-[#12365A] text-white font-mono text-[10px] font-bold">
+                    {lang === 'ar' ? 'الموجز الانتخابي 001' : lang === 'fr' ? 'Brief Électoral 001' : 'Election Brief 001'}
+                  </span>
+                  <span className="text-[11px] font-bold text-[#B88932] uppercase tracking-wider">
+                    {lang === 'ar' ? '22 شتنبر 2026 · نسخة ما قبل الاقتراع' : lang === 'fr' ? '22 septembre 2026 · Édition pré-électorale' : '22 September 2026 · Pre-election edition'}
+                  </span>
+                </div>
+                <h2 className="text-base sm:text-lg font-bold text-[#14202B]">
+                  {lang === 'ar'
+                    ? 'الانتخابات التشريعية المغربية 2026: الرهانات، مقترحات الأحزاب، ومعايير التتبع'
+                    : lang === 'fr'
+                    ? 'Élections Législatives Marocaines 2026 : Enjeux, propositions des partis et grille de suivi'
+                    : "Morocco's 2026 Legislative Elections: What Is at Stake, What Parties Are Proposing, and What to Monitor"}
+                </h2>
+                <p className="text-xs text-[#62717F] line-clamp-1">
+                  {lang === 'ar'
+                    ? '15,801,162 ناخباً · 395 مقعداً · تدقيق التزامات الأحرار والبام والاستقلال والاتحاد والتقدم والعدالة والتنمية'
+                    : lang === 'fr'
+                    ? '15 801 162 inscrits · 395 sièges · Analyse comparative des engagements RNI, PAM, PI, USFP, PPS, PJD'
+                    : '15,801,162 registered voters · 395 seats · Comparative baseline of RNI, PAM, PI, USFP, PPS, and PJD commitments'}
+                </p>
+              </div>
+              <a
+                href="/reports?report=election-brief-001"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#12365A] hover:bg-[#0B1E33] text-white text-xs font-bold transition-all shrink-0 self-start sm:self-center shadow-xs cursor-pointer"
+              >
+                <span>{lang === 'ar' ? 'قراءة التقرير والوثائق' : lang === 'fr' ? 'Lire le brief complet' : 'Read Full Special Brief'}</span>
+                <span className={lang === 'ar' ? 'rotate-180 inline-block' : ''}>→</span>
+              </a>
+            </div>
+          </div>
+
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-[#62717F] font-normal leading-relaxed max-w-2xl mb-10">
             {t.hero.desc}

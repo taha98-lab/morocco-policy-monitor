@@ -12,8 +12,12 @@ const ECONOMIC_SOURCE_URLS: Record<string, string> = {
   "Bank Al-Maghrib": "https://www.bkam.ma/"
 };
 
-const economicSourceUrl = (institution: string) =>
-  ECONOMIC_SOURCE_URLS[institution] || "https://www.maroc.ma/";
+const economicSourceUrl = (institution: string, _indicatorId?: string) => {
+  if (institution.includes('HCP') || institution.includes('Haut-Commissariat')) return 'https://www.hcp.ma/';
+  if (institution.includes('Bank Al-Maghrib') || institution.includes('BAM')) return 'https://www.bkam.ma/';
+  if (institution.includes('Finances') || institution.includes('Trésor')) return 'https://www.finances.gov.ma/';
+  return ECONOMIC_SOURCE_URLS[institution] || "https://www.maroc.ma/";
+};
 
 const getSourceInstitution = (inst: string, instAr: string, l: Language) => {
   if (l === 'ar') return instAr;
@@ -153,7 +157,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
                   <div className="flex items-center gap-1.5">
                     <Database className="w-3.5 h-3.5 text-[#B88932] shrink-0" />
                     <a
-                      href={economicSourceUrl(ind.sourceInstitution)}
+                      href={economicSourceUrl(ind.sourceInstitution, ind.id)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="truncate hover:text-[#12365A] hover:underline"
@@ -220,7 +224,7 @@ export const EconomySection: React.FC<EconomySectionProps> = ({ lang }) => {
             <div className="text-xs text-[#62717F]">
               <span>{t.economy.source}: </span>
               <a
-                href={economicSourceUrl(selectedChartIndicator.sourceInstitution)}
+                href={economicSourceUrl(selectedChartIndicator.sourceInstitution, selectedChartIndicator.id)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[#14202B] hover:text-[#12365A] hover:underline"

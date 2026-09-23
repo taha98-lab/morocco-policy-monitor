@@ -13,41 +13,30 @@ const SOURCE_URLS: Record<string, string> = {
   "Cabinet Royal": "https://www.maroc.ma/",
   "Direction Générale de l’Hydraulique": "https://www.equipement.gov.ma/",
   "Ministère de l’Éducation nationale": "https://www.men.gov.ma/",
-  "J-PAL / ONDH": "https://www.j-pal.org/",
+  "J-PAL / ONDH": "https://www.povertyactionlab.org/",
   "CSEFRS": "https://www.csefrs.ma/",
-  "Agence Nationale du Soutien Social (ANSS)": "https://www.anss.gov.ma/",
-  "Secrétariat Général du Gouvernement / Bulletin officiel": "https://www.sgg.gov.ma/",
+  "Agence Nationale du Soutien Social (ANSS)": "https://www.asd.ma/",
+  "Secrétariat Général du Gouvernement / Bulletin officiel": "http://www.sgg.gov.ma/",
   "CESE": "https://www.cese.ma/",
-  "Ministère de l’Aménagement du Territoire et de l’Habitat": "https://www.mhpv.gov.ma/",
+  "Ministère de l’Aménagement du Territoire et de l’Habitat": "https://www.maroc.ma/",
   "Ordre National des Notaires": "https://www.notaires.ma/"
 };
 
-const SOURCE_TITLE_URLS: Record<string, string> = {
-  "Enquête nationale sur l’emploi — notes de conjoncture": "https://www.hcp.ma/Marche-du-travail_r423.html",
-  "Déclaration du Chef du Gouvernement devant le Parlement": "https://www.chambredesrepresentants.ma/",
-  "Rapport annuel sur la situation économique": "https://www.bkam.ma/",
-  "La femme marocaine en chiffres": "https://www.hcp.ma/",
-  "Rapport sur le Budget Genre accompagnant le PLF": "https://www.finances.gov.ma/fr/vous-orientez/Pages/plf2024.aspx",
-  "Avis sur la participation des femmes au développement": "https://www.cese.ma/",
-  "Loi-cadre n° 09-21 relative à la protection sociale": "https://www.sgg.gov.ma/",
-  "Aides sociales directes — typologie et critères": "https://www.anss.gov.ma/fr/typologies-d-aides",
-  "Orientations générales du PLF 2024": "https://www.finances.gov.ma/fr/vous-orientez/Pages/plf2024.aspx",
-  "Rapport sur la situation hydrique nationale": "https://www.maroc.ma/fr/actualites/le-dessalement-au-service-de-la-souverainete-hydrique",
-  "Discours du Trône sur la sécurité hydrique": "https://www.maroc.ma/fr/discours-messages-royaux/discours-royaux/sm-le-roi-adresse-un-discours-la-nation-loccasion-de-la-fete-du-trone-texte-integral",
-  "Bulletin de situation des barrages": "https://www.equipement.gov.ma/",
-  "Feuille de route 2022–2026 : Pour une école publique de qualité": "https://www.men.gov.ma/fr/etablissements-pionniers",
-  "Établissements pionniers": "https://www.men.gov.ma/fr/%C3%A9tablissements-pionniers",
-  "Évaluation d’impact du programme Écoles Pionnières": "https://www.men.gov.ma/fr/%C3%A9tablissements-pionniers",
-  "Budget Citoyen / Loi de finances 2024 — aide au logement": "https://www.finances.gov.ma/Publication/db/2023/Budget%20Citoyen_PLF%202024_VFR.pdf",
-  "Bilan de la plateforme Daam Sakane": "https://www.maroc.ma/",
-  "Statistiques de l’Ordre National des Notaires du Maroc": "https://www.notaires.ma/"
+const sourceUrlFor = (institution: string, _title?: string) => {
+  if (institution.includes('HCP') || institution.includes('Haut-Commissariat')) return 'https://www.hcp.ma/';
+  if (institution.includes('Bank Al-Maghrib') || institution.includes('BAM')) return 'https://www.bkam.ma/';
+  if (institution.includes('Finances') || institution.includes('Trésor')) return 'https://www.finances.gov.ma/';
+  if (institution.includes('Représentants') || institution.includes('Parlement')) return 'https://www.chambredesrepresentants.ma/';
+  if (institution.includes('Équipement') || institution.includes('Eau') || institution.includes('Hydraulique')) return 'https://www.equipement.gov.ma/';
+  if (institution.includes('Éducation')) return 'https://www.men.gov.ma/';
+  if (institution.includes('Soutien Social') || institution.includes('ANSS') || institution.includes('ASD')) return 'https://www.asd.ma/';
+  if (institution.includes('Gouvernement') || institution.includes('Bulletin officiel') || institution.includes('SGG')) return 'http://www.sgg.gov.ma/';
+  if (institution.includes('CESE')) return 'https://www.cese.ma/';
+  if (institution.includes('CSEFRS')) return 'https://www.csefrs.ma/';
+  if (institution.includes('Notaires')) return 'https://www.notaires.ma/';
+  if (institution.includes('J-PAL')) return 'https://www.povertyactionlab.org/';
+  return SOURCE_URLS[institution] || "https://www.maroc.ma/";
 };
-
-const sourceUrlFor = (institution: string, title?: string) =>
-  (title && SOURCE_TITLE_URLS[title]) ||
-  SOURCE_URLS[institution] ||
-  Object.entries(SOURCE_URLS).find(([key]) => institution.includes(key) || key.includes(institution))?.[1] ||
-  "https://www.maroc.ma/";
 
 interface DossierModalProps {
   promise: PromiseRecord;
